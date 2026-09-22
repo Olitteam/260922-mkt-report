@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>슬룸 마케팅팀 · 9월 3주차 운영 보고 · 9/14~9/20</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f5f4f1;--card:#ffffff;--card2:#f2f1ee;
+  --border:rgba(0,0,0,0.08);--border2:rgba(0,0,0,0.15);
+  --ink:#1a1a1a;--ink2:#4a4a4a;--ink3:#888888;
+  --v1:#2563eb;--v1bg:rgba(37,99,235,0.06);
+  --v2:#16a34a;--v2bg:rgba(22,163,74,0.06);
+  --done:#16a34a;--warn:#d97706;--warnbg:rgba(217,119,6,0.07);
+  --block:#dc2626;--blockbg:rgba(220,38,38,0.06);
+  --think:#7c3aed;--thinkbg:rgba(124,58,237,0.06);
+  --accent:#facc15;
+}
+html{font-size:14px}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+.mono{font-variant-numeric:tabular-nums}
+.hdr{background:var(--ink);padding:32px 56px 28px;display:flex;justify-content:space-between;align-items:flex-end}
+.hdr-tag{font-size:11px;letter-spacing:.14em;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:8px}
+.hdr-title{font-size:23px;font-weight:900;color:#fff;letter-spacing:-.02em}
+.hdr-title em{color:var(--accent);font-style:normal}
+.hdr-right{text-align:right}
+.hdr-week{font-size:13px;font-weight:500;color:rgba(255,255,255,0.7);margin-bottom:4px}
+.hdr-meta{font-size:11px;color:rgba(255,255,255,0.3);line-height:1.6}
+.wrap{max-width:1160px;margin:0 auto;padding:40px 48px 100px}
+.sec{margin-bottom:46px}
+.sec-hdr{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--border2)}
+.sec-num{font-size:11px;font-weight:500;color:var(--ink3);letter-spacing:.04em}
+.sec-title{font-size:18px;font-weight:800;letter-spacing:-.01em}
+.sec-title small{font-size:12px;font-weight:600;color:var(--ink3);margin-left:8px}
+.hero{background:var(--ink);border-radius:16px;padding:32px 40px 28px;margin-bottom:14px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;top:-40%;right:-6%;width:340px;height:340px;background:radial-gradient(circle,rgba(250,204,21,0.14),transparent 68%);pointer-events:none}
+.hero-eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:6px;position:relative}
+.hero-headline{font-size:15px;color:rgba(255,255,255,0.8);margin-bottom:22px;position:relative}
+.hero-headline b{color:var(--accent);font-weight:800}
+ul.hero-headline{list-style:none;display:flex;flex-direction:column;gap:7px}
+ul.hero-headline li{display:block;padding-left:15px;position:relative;line-height:1.55}
+ul.hero-headline li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.45)}
+.hero-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:1px;background:rgba(255,255,255,0.1);border-radius:10px;overflow:hidden;position:relative}
+.hero-cell{background:var(--ink);padding:18px 20px}
+.hero-cell.feat{background:linear-gradient(145deg,rgba(22,163,74,0.22),rgba(26,26,26,0.4))}
+.hero-cell .lbl{font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:8px}
+.hero-cell .val{font-size:26px;font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1}
+.hero-cell.feat .val{font-size:30px}
+.hero-cell .val em{font-style:normal;color:var(--accent)}
+.hero-cell .sub{font-size:11px;margin-top:7px;font-weight:600}
+.up{color:#4ade80}.down{color:#f87171}.flat{color:rgba(255,255,255,0.55)}
+.hero-note{margin-top:16px;font-size:11.5px;color:rgba(255,255,255,0.45);line-height:1.7;position:relative}
+.teamgoal{background:linear-gradient(150deg,#1f2937,#111827);border-radius:16px;padding:30px 36px 28px;margin-bottom:14px;position:relative;overflow:hidden}
+.teamgoal::after{content:"";position:absolute;top:-30%;right:-4%;width:320px;height:320px;background:radial-gradient(circle,rgba(37,99,235,0.16),transparent 66%);pointer-events:none}
+.teamgoal-eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.42);margin-bottom:16px;position:relative}
+.tg-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative}
+.tg-block{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px 22px}
+.tg-block-hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.tg-block-t{font-size:12px;font-weight:700;color:rgba(255,255,255,0.6)}
+.tg-block-badge{font-size:10px;font-weight:800;padding:2px 8px;border-radius:5px}
+.tg-pct{font-size:26px;font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1.15;margin-bottom:14px}
+.tg-pct em{font-style:normal;font-size:15px;color:rgba(255,255,255,0.5);font-weight:700;letter-spacing:0}
+.tg-fig{font-size:11.5px;color:rgba(255,255,255,0.5);margin-bottom:14px;line-height:1.6}
+.tg-fig b{color:rgba(255,255,255,0.85);font-weight:700}
+.tg-track{height:9px;background:rgba(255,255,255,0.1);border-radius:5px;overflow:hidden;position:relative}
+.tg-fill{height:100%;border-radius:5px}
+.tg-marker{position:absolute;top:-3px;bottom:-3px;width:2px;background:rgba(255,255,255,0.55)}
+.tg-scale{display:flex;justify-content:space-between;margin-top:6px;font-size:9.5px;color:rgba(255,255,255,0.35)}
+.tg-foot{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);display:grid;grid-template-columns:repeat(3,1fr);gap:14px;position:relative}
+.tg-foot-cell{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:11px;padding:15px 17px}
+.tg-foot-cell .l{font-size:11px;font-weight:700;color:rgba(255,255,255,0.5);margin-bottom:10px;letter-spacing:.01em}
+.tg-foot-cell .l .tag{font-size:9.5px;font-weight:800;padding:1px 6px;border-radius:4px;margin-left:6px;vertical-align:middle}
+.tg-foot-cell .v{font-size:22px;font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1}
+.tg-foot-cell .v em{font-style:normal;font-size:13px;color:rgba(255,255,255,0.55);font-weight:700;margin-left:2px}
+.tg-foot-cell .d{font-size:11px;color:rgba(255,255,255,0.5);margin-top:8px;line-height:1.5}
+.tg-foot-cell .d b{color:rgba(255,255,255,0.82);font-weight:700}
+.tg-mini{height:5px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;position:relative;margin-top:10px}
+.tg-mini-fill{height:100%;border-radius:3px}
+.tg-mini-mark{position:absolute;top:-2px;bottom:-2px;width:1.5px;background:rgba(255,255,255,0.6)}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
+.roas-goal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.redflag{background:var(--blockbg);border:1px solid rgba(220,38,38,0.28);border-left:4px solid var(--block);border-radius:12px;padding:16px 20px;margin-bottom:14px}
+.redflag-hd{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.redflag-badge{font-size:10px;font-weight:900;letter-spacing:.04em;padding:3px 10px;border-radius:5px;background:var(--block);color:#fff}
+.redflag-t{font-size:13.5px;font-weight:800;color:var(--block)}
+.redflag-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0 4px}
+.redflag-metric{background:var(--card);border:1px solid rgba(220,38,38,0.18);border-radius:9px;padding:11px 13px}
+.redflag-metric .rm-l{font-size:11px;font-weight:700;color:var(--ink3);margin-bottom:5px}
+.redflag-metric .rm-v{font-size:15px;font-weight:900;letter-spacing:-.01em}
+.redflag-metric .rm-v .from{color:var(--ink3);font-weight:700}.redflag-metric .rm-v .to{color:var(--block)}
+.redflag-metric .rm-d{font-size:10.5px;color:var(--ink3);margin-top:4px;line-height:1.5}
+.redflag ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.redflag li{font-size:12px;color:var(--ink2);line-height:1.6;display:flex;gap:8px;align-items:baseline}
+.redflag li::before{content:"▸";color:var(--block);font-weight:900;flex-shrink:0}
+.redflag li b{color:var(--ink);font-weight:700}
+.kpi-mini-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+.kpi-mini-label{font-size:12px;margin-bottom:2px}
+.kpi-mini-divider{height:1px;background:var(--border);margin:9px 0}
+.kpi-mini-val{font-size:20px;font-weight:900;letter-spacing:-.01em}
+.tbl-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+table.goal-tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+.goal-tbl th,.goal-tbl td{padding:11px 14px;text-align:right;border-bottom:1px solid var(--border);white-space:nowrap}
+.goal-tbl thead th{background:var(--card2);font-weight:700;color:var(--ink2);font-size:11.5px;border-bottom:1px solid var(--border2)}
+.goal-tbl tbody tr:last-child td{border-bottom:none}
+.g-rev{color:var(--v1)}.g-ci{color:var(--done)}
+.tbl-cap{padding:9px 18px;font-size:11px;color:var(--ink3);background:var(--card2);border-top:1px solid var(--border);white-space:normal;line-height:1.6}
+.pos{color:var(--done);font-weight:700}.neg{color:var(--block);font-weight:700}
+.goal-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:8px 0;margin-bottom:14px}
+.goal-item{padding:15px 22px;border-bottom:1px solid var(--border)}
+.goal-item:last-child{border-bottom:none}
+.goal-item-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px;gap:12px;flex-wrap:wrap}
+.goal-name{font-size:13.5px;font-weight:800}
+.goal-name .tagx{font-size:10px;font-weight:700;padding:1px 7px;border-radius:4px;margin-left:8px;vertical-align:middle}
+.goal-fig{font-size:12px;color:var(--ink2)}
+.goal-fig b{font-weight:800;color:var(--ink)}
+.goal-track{height:22px;background:var(--card2);border-radius:6px;position:relative;overflow:hidden}
+.goal-fill{height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:9px;font-size:11px;font-weight:800;color:#fff;min-width:44px}
+.chart-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px 26px 18px}
+.bar-chart{display:flex;align-items:flex-end;gap:26px;height:210px;padding:0 8px;border-bottom:2px solid var(--border2)}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.bar-val{font-size:12px;font-weight:800;margin-bottom:6px}
+.bar-ci{font-size:10.5px;font-weight:700;color:var(--done);margin-bottom:3px}
+.bar-ci.neg{color:var(--block)}
+.bar{width:100%;max-width:66px;border-radius:6px 6px 0 0;background:linear-gradient(180deg,var(--v1),rgba(37,99,235,0.5));position:relative}
+.bar-x{display:flex;gap:26px;padding:10px 8px 0}
+.bar-x span{flex:1;text-align:center;font-size:12px;font-weight:700;color:var(--ink2)}
+.insight{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:6px 0;margin-bottom:14px}
+.insight-row{padding:14px 20px;border-bottom:1px solid var(--border);display:flex;gap:14px;align-items:flex-start}
+.insight-row:last-child{border-bottom:none}
+.ins-icon{flex-shrink:0;width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#fff}
+.ins-body{font-size:12.5px;color:var(--ink2);line-height:1.7}
+.ins-body strong{color:var(--ink);font-weight:700}
+.ins-body .hl{color:var(--done);font-weight:700}.ins-body .hlr{color:var(--block);font-weight:700}
+.ins-title{font-size:13px;font-weight:800;color:var(--ink);margin-bottom:9px;display:flex;align-items:center;gap:7px}
+.ins-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.ins-list li{font-size:12.5px;color:var(--ink2);line-height:1.6;display:flex;gap:8px;align-items:baseline}
+.ins-list li::before{content:"·";color:var(--ink3);font-weight:900;flex-shrink:0}
+.ins-list li.sub{margin-left:16px}
+.ins-list li.sub::before{content:"–";color:var(--ink3);font-weight:600}
+.ins-list li strong{color:var(--ink);font-weight:700}
+.ins-list li .hl{color:var(--done);font-weight:700}.ins-list li .hlr{color:var(--block);font-weight:700}
+.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.next-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 22px}
+.next-card h4{font-size:13px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.next-card .chip{font-size:10px;font-weight:800;padding:2px 8px;border-radius:5px}
+.next-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.next-list li{font-size:12.5px;color:var(--ink2);line-height:1.65;display:flex;gap:9px;align-items:baseline}
+.next-list li::before{content:"→";color:var(--ink3);font-weight:800;flex-shrink:0}
+.next-list li strong{color:var(--ink);font-weight:700}
+.next-list2{list-style:none;display:flex;flex-direction:column;gap:13px}
+.next-list2 li{display:flex;gap:9px;align-items:baseline}
+.next-list2 li::before{content:"→";color:var(--v1);font-weight:800;flex-shrink:0}
+.next-list2 .nl-t{font-size:12.5px;font-weight:700;color:var(--ink);line-height:1.5;margin-bottom:3px}
+.next-list2 .nl-d{font-size:12px;color:var(--ink2);line-height:1.6}
+.next-list2 .nl-d b{color:var(--ink);font-weight:700}
+.gfa-toggle{margin-top:14px;background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.gfa-toggle summary{list-style:none;cursor:pointer;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--card2);border-bottom:1px solid transparent;transition:background .15s}
+.gfa-toggle summary::-webkit-details-marker{display:none}
+.gfa-toggle[open] summary{border-bottom:1px solid var(--border)}
+.gfa-toggle summary:hover{background:#ecebe7}
+.gfa-sum-l{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:800;color:var(--ink)}
+.gfa-sum-l .gfa-chip{font-size:10px;font-weight:800;padding:2px 8px;border-radius:5px;background:var(--v2bg);color:var(--done)}
+.gfa-sum-r{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--ink3);font-weight:600}
+.gfa-arrow{width:16px;height:16px;flex-shrink:0;transition:transform .2s;color:var(--ink3)}
+.gfa-toggle[open] .gfa-arrow{transform:rotate(180deg)}
+.gfa-tag{font-size:9.5px;font-weight:800;padding:1px 6px;border-radius:4px;white-space:nowrap}
+.gfa-bar{display:inline-block;height:6px;border-radius:3px;background:linear-gradient(90deg,#16a34a,#4ade80);vertical-align:middle;min-width:3px}
+@media (max-width:820px){
+  .hdr{padding:24px 24px 20px;flex-direction:column;align-items:flex-start;gap:14px}
+  .hdr-right{text-align:left}
+  .wrap{padding:28px 20px 80px}
+  .hero{padding:24px 22px}
+  .hero-grid{grid-template-columns:1fr 1fr}
+  .tg-grid{grid-template-columns:1fr}
+  .tg-foot{grid-template-columns:1fr 1fr}
+  .kpi-row{grid-template-columns:1fr 1fr}
+  .roas-goal-grid{grid-template-columns:1fr 1fr}
+  .redflag-metrics{grid-template-columns:1fr}
+  .next-grid{grid-template-columns:1fr}
+  .bar-chart{gap:12px}.bar-x{gap:12px}
+  .tbl-wrap{overflow-x:auto}
+}
+.hero-cell.featneg{background:linear-gradient(145deg,rgba(220,38,38,0.24),rgba(26,26,26,0.4))}
+.hero-cell.featneg .val{font-size:30px}
+.warnflag{background:var(--warnbg);border:1px solid rgba(217,119,6,0.28);border-left:4px solid var(--warn);border-radius:12px;padding:16px 20px;margin-bottom:14px}
+.warnflag-hd{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.warnflag-badge{font-size:10px;font-weight:900;letter-spacing:.04em;padding:3px 10px;border-radius:5px;background:var(--warn);color:#fff}
+.warnflag-t{font-size:13.5px;font-weight:800;color:#b45309}
+.warnflag p{font-size:12px;color:var(--ink2);line-height:1.7}
+.warnflag p b{color:var(--ink);font-weight:700}
+.fix-tbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:12px;background:var(--card);border-radius:9px;overflow:hidden}
+.fix-tbl th,.fix-tbl td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--border);white-space:nowrap}
+.fix-tbl th:first-child,.fix-tbl td:first-child{text-align:left}
+.fix-tbl thead th{background:var(--card2);font-weight:700;color:var(--ink2);font-size:11px}
+.fix-tbl tbody tr:last-child td{border-bottom:none}
+.fix-tbl .old{color:var(--ink3)}
+.fix-tbl .new{color:var(--block);font-weight:700}
+.bar.negbar{background:linear-gradient(180deg,var(--block),rgba(220,38,38,0.45))}
+.pending{font-size:9.5px;font-weight:800;padding:1px 7px;border-radius:4px;background:var(--warnbg);color:var(--warn);border:1px solid rgba(217,119,6,0.3);margin-left:6px;vertical-align:middle;white-space:nowrap}
+.goal-tbl td:first-child,.goal-tbl th:first-child{text-align:left}
+.est{color:var(--ink3);font-style:normal}
+.note-hd{font-weight:700;margin-bottom:7px}
+.note-list{list-style:none;display:flex;flex-direction:column;gap:5px}
+.note-list li{display:flex;gap:7px;align-items:baseline}
+.note-list li::before{content:"·";flex-shrink:0;font-weight:900;opacity:.55}
+.tbl-cap .note-hd{color:var(--ink2)}
+.foot-note .note-list li{line-height:1.75}
+.goodflag{background:var(--v2bg);border:1px solid rgba(22,163,74,0.28);border-left:4px solid var(--done);border-radius:12px;padding:16px 20px;margin-bottom:14px}
+.goodflag-hd{display:flex;align-items:center;gap:9px;margin-bottom:11px}
+.goodflag-badge{font-size:10px;font-weight:900;letter-spacing:.04em;padding:3px 10px;border-radius:5px;background:var(--done);color:#fff}
+.goodflag-t{font-size:13.5px;font-weight:800;color:#15803d}
+.goodflag ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.goodflag li{display:flex;gap:9px;align-items:baseline}
+.goodflag li::before{content:"✓";color:var(--done);font-weight:900;flex-shrink:0}
+.goodflag .gf-t{font-size:12.5px;font-weight:700;color:var(--ink);line-height:1.5;margin-bottom:3px}
+.goodflag .gf-d{font-size:12px;color:var(--ink2);line-height:1.6}
+.goodflag .gf-d b{color:var(--ink);font-weight:700}
+.baseflag{background:var(--v1bg);border:1px solid rgba(37,99,235,0.28);border-left:4px solid var(--v1);border-radius:12px;padding:16px 20px;margin-bottom:14px}
+.baseflag-hd{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.baseflag-badge{font-size:10px;font-weight:900;letter-spacing:.04em;padding:3px 10px;border-radius:5px;background:var(--v1);color:#fff}
+.baseflag-t{font-size:13.5px;font-weight:800;color:#1d4ed8}
+.baseflag p{font-size:12px;color:var(--ink2);line-height:1.7}
+.baseflag p b{color:var(--ink);font-weight:700}
+.baseflag-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0 4px}
+.baseflag-metric{background:var(--card);border:1px solid rgba(37,99,235,0.18);border-radius:9px;padding:11px 13px}
+.baseflag-metric .rm-l{font-size:11px;font-weight:700;color:var(--ink3);margin-bottom:5px}
+.baseflag-metric .rm-v{font-size:15px;font-weight:900;letter-spacing:-.01em}
+.baseflag-metric .rm-d{font-size:10.5px;color:var(--ink3);margin-top:4px;line-height:1.5}
+.baseflag ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.baseflag li{font-size:12px;color:var(--ink2);line-height:1.6;display:flex;gap:8px;align-items:baseline}
+.baseflag li::before{content:"▸";color:var(--v1);font-weight:900;flex-shrink:0}
+.baseflag li b{color:var(--ink);font-weight:700}
+@media (max-width:820px){.baseflag-metrics{grid-template-columns:1fr}}
+
+/* ===== 리스트 줄바꿈 수정 =====
+   li가 display:flex였던 탓에 <strong>/<span> 같은 인라인 강조가
+   각각 별도 flex item으로 쪼개져 gap이 끼고 줄바꿈이 어긋남.
+   행잉 인덴트로 전환해 텍스트가 정상 흐르도록 처리. */
+.ins-list li,.note-list li,.baseflag li,.redflag li{
+  display:block;gap:0;padding-left:15px;position:relative}
+.ins-list li::before,.note-list li::before,.baseflag li::before,.redflag li::before{
+  position:absolute;left:1px;top:0}
+.ins-list li.sub{margin-left:16px}
+.nb{white-space:nowrap}
+.gf-next{font-size:12px;color:var(--ink2);line-height:1.6;margin-top:7px;padding-top:7px;border-top:1px dashed var(--border2)}
+.gf-next b{color:var(--ink);font-weight:700}
+.gf-next::before{content:"8월 → ";font-weight:900;color:var(--done)}
+.goodflag .gf-list{list-style:none;display:flex;flex-direction:column;gap:5px;margin-top:2px}
+.goodflag .gf-list li{display:block;gap:0;padding-left:14px;position:relative;font-size:12px;color:var(--ink2);line-height:1.6}
+.goodflag .gf-list li::before{content:"·";position:absolute;left:1px;top:0;color:var(--ink3);font-weight:900}
+.goodflag .gf-list li b{color:var(--ink);font-weight:700}
+
+.ph{display:inline-block;min-width:44px;padding:1px 8px;border-radius:5px;background:rgba(217,119,6,0.10);border:1px dashed rgba(217,119,6,0.55);color:#b45309;font-weight:700;font-size:11px;white-space:nowrap}
+.ph-d{display:inline-block;min-width:44px;padding:1px 8px;border-radius:5px;background:rgba(250,204,21,0.12);border:1px dashed rgba(250,204,21,0.45);color:#fde047;font-weight:700;font-size:12px;white-space:nowrap}
+.carry{font-size:11px;color:var(--ink3);font-weight:600}
+.split-row td{background:rgba(37,99,235,0.06)!important;font-weight:700}
+
+/* ===== 파트 구분 · 가독성 개선 ===== */
+.part{margin:0 0 24px;padding:22px 28px;border-radius:15px;background:linear-gradient(100deg,#1f2937,#0f172a);display:flex;align-items:center;justify-content:space-between;gap:18px;position:relative;overflow:hidden}
+.part::after{content:"";position:absolute;top:-70%;right:-2%;width:280px;height:280px;background:radial-gradient(circle,rgba(250,204,21,0.13),transparent 66%);pointer-events:none}
+.part-l{position:relative;min-width:0}
+.part-kicker{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:6px}
+.part-t{font-size:19px;font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1.35}
+.part-t em{font-style:normal;color:var(--accent)}
+.part-d{font-size:11.5px;color:rgba(255,255,255,0.52);margin-top:7px;line-height:1.65}
+.part-badge{position:relative;flex-shrink:0;font-size:11px;font-weight:800;padding:9px 15px;border-radius:9px;background:rgba(255,255,255,0.09);color:#fff;border:1px solid rgba(255,255,255,0.16);white-space:nowrap;text-align:center;line-height:1.55}
+.part-badge span{display:block;font-size:9.5px;font-weight:700;color:rgba(255,255,255,0.45);letter-spacing:.06em;margin-bottom:2px}
+.unit{font-size:10px;font-weight:800;padding:3px 9px;border-radius:5px;margin-left:auto;white-space:nowrap;flex-shrink:0}
+.unit.m{background:rgba(37,99,235,0.10);color:var(--v1);border:1px solid rgba(37,99,235,0.30)}
+.unit.w{background:rgba(22,163,74,0.10);color:var(--done);border:1px solid rgba(22,163,74,0.30)}
+.unit.n{background:rgba(124,58,237,0.10);color:var(--think);border:1px solid rgba(124,58,237,0.30)}
+.sec-title{min-width:0}
+.tldr{background:var(--card);border:1px solid var(--border2);border-radius:16px;padding:24px 28px 22px;margin-bottom:34px}
+.tldr-hd{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:13px;border-bottom:1px solid var(--border)}
+.tldr-badge{font-size:10px;font-weight:900;letter-spacing:.06em;padding:3px 10px;border-radius:5px;background:var(--ink);color:#fff}
+.tldr-t{font-size:14px;font-weight:800;letter-spacing:-.01em}
+.tldr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.tldr-cell{background:var(--card2);border:1px solid var(--border);border-radius:11px;padding:14px 16px}
+.tldr-cell .l{font-size:11px;color:var(--ink3);font-weight:700;margin-bottom:8px}
+.tldr-cell .v{font-size:21px;font-weight:900;letter-spacing:-.02em;line-height:1}
+.tldr-cell .v em{font-style:normal;font-size:13px;color:var(--ink3);font-weight:700}
+.tldr-cell .s{font-size:11px;margin-top:8px;font-weight:600;line-height:1.5}
+.tldr-cell .s.up{color:var(--done)}.tldr-cell .s.dn{color:var(--block)}.tldr-cell .s.fl{color:var(--ink3)}
+.tldr-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.tldr-list li{font-size:12.5px;color:var(--ink2);line-height:1.7;padding-left:24px;position:relative}
+.tldr-list li::before{content:attr(data-n);position:absolute;left:0;top:2px;width:17px;height:17px;border-radius:5px;background:var(--ink);color:#fff;font-size:9.5px;font-weight:900;display:flex;align-items:center;justify-content:center}
+.tldr-list li b{color:var(--ink);font-weight:700}
+.tldr-list li .g{color:var(--done);font-weight:700}.tldr-list li .r{color:var(--block);font-weight:700}
+.goal-tbl tbody tr:hover{background:rgba(37,99,235,0.035)}
+.sub-hd{display:flex;align-items:baseline;gap:10px;margin:26px 0 12px;padding-bottom:9px;border-bottom:1px solid var(--border)}
+.sub-hd-t{font-size:14px;font-weight:800;letter-spacing:-.01em}
+.sub-hd-d{font-size:11.5px;color:var(--ink3);font-weight:600}
+.appx{background:var(--card2);border:1px solid var(--border2);border-radius:13px;padding:4px 0}
+.appx-item{padding:16px 22px;border-bottom:1px solid var(--border)}
+.appx-item:last-child{border-bottom:none}
+.appx-t{font-size:12.5px;font-weight:800;margin-bottom:7px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.appx-chip{font-size:9.5px;font-weight:800;padding:2px 8px;border-radius:4px;white-space:nowrap}
+.appx-d{font-size:12px;color:var(--ink2);line-height:1.75}
+.appx-d b{color:var(--ink);font-weight:700}
+@media (max-width:820px){
+  .tldr{padding:20px 18px}
+  .tldr-grid{grid-template-columns:1fr 1fr}
+  .part{flex-direction:column;align-items:flex-start;padding:20px 20px}
+  .part-badge{align-self:stretch}
+  .unit{margin-left:0}
+  .sec-hdr{flex-wrap:wrap}
+}
+
+/* ===== 요약 3단 카드 ===== */
+.sum-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px}
+.sum-card{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:16px 18px 17px}
+.sum-card-hd{display:flex;align-items:flex-start;gap:9px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.sum-num{width:19px;height:19px;border-radius:6px;background:var(--ink);color:#fff;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.sum-card-t{font-size:12.5px;font-weight:800;line-height:1.4;min-width:0}
+.sum-card-t em{font-style:normal;color:var(--ink3);font-weight:700;font-size:11px;display:block;margin-top:3px;line-height:1.5}
+.sum-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.sum-list li{font-size:12px;color:var(--ink2);line-height:1.68;padding-left:14px;position:relative}
+.sum-list li::before{content:"–";position:absolute;left:0;top:0;color:var(--ink3);font-weight:800}
+.sum-list li b{color:var(--ink);font-weight:700}
+.sum-list li .g{color:var(--done);font-weight:700}
+.sum-list li .r{color:var(--block);font-weight:700}
+.sum-list li .k{display:inline-block;font-size:10px;font-weight:800;padding:1px 6px;border-radius:4px;background:var(--v1bg);color:var(--v1);margin-right:5px;vertical-align:middle}
+@media (max-width:820px){.sum-grid{grid-template-columns:1fr}}
+
+/* ===== 제품별 탭 ===== */
+.tabs{margin-top:16px}
+.tab-nav{display:flex;gap:6px;background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:5px;margin-bottom:14px;overflow-x:auto}
+.tab-btn{flex:1;min-width:112px;font-family:inherit;font-size:12.5px;font-weight:800;color:var(--ink3);background:transparent;border:none;border-radius:9px;padding:10px 12px;cursor:pointer;white-space:nowrap;transition:all .15s;letter-spacing:-.01em}
+.tab-btn:hover{color:var(--ink2);background:rgba(0,0,0,0.035)}
+.tab-btn.active{background:var(--ink);color:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.14)}
+.tab-panel{display:none}
+.tab-panel.active{display:block;animation:tabin .18s ease}
+@keyframes tabin{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.tp-hd{background:var(--card);border:1px solid var(--border);border-radius:12px 12px 0 0;border-bottom:none;padding:16px 20px 14px}
+.tp-t{font-size:14.5px;font-weight:800;letter-spacing:-.01em;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.tp-chip{font-size:10px;font-weight:800;padding:2px 9px;border-radius:5px;white-space:nowrap}
+.tp-d{font-size:11.5px;color:var(--ink3);font-weight:600;margin-top:6px;line-height:1.6}
+.tp-kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border2);border:1px solid var(--border);border-top:none;border-bottom:none}
+.tp-cell{background:var(--card);padding:15px 18px}
+.tp-cell.feat{background:linear-gradient(150deg,rgba(22,163,74,0.09),var(--card))}
+.tp-cell.featneg{background:linear-gradient(150deg,rgba(220,38,38,0.08),var(--card))}
+.tp-cell .l{font-size:11px;color:var(--ink3);font-weight:700;margin-bottom:8px}
+.tp-cell .v{font-size:21px;font-weight:900;letter-spacing:-.02em;line-height:1}
+.tp-cell .v em{font-style:normal;font-size:13px;color:var(--ink3);font-weight:700}
+.tp-cell .s{font-size:11px;margin-top:8px;font-weight:600;line-height:1.5}
+.tp-cell .s.up{color:var(--done)}.tp-cell .s.dn{color:var(--block)}
+.tp-cell .s b{font-weight:800}
+.tp-body{display:grid;grid-template-columns:1.15fr 1fr;gap:1px;background:var(--border2);border:1px solid var(--border);border-top:none;border-bottom:none}
+.tp-tblbox,.tp-side{background:var(--card);padding:16px 20px 18px}
+.tp-sub{font-size:11.5px;font-weight:800;color:var(--ink2);margin-bottom:10px;letter-spacing:-.01em}
+.tp-tblbox .fix-tbl{margin-top:0;border:1px solid var(--border)}
+.tp-alert{margin-top:11px;font-size:11.5px;line-height:1.65;color:#b45309;background:var(--warnbg);border:1px solid rgba(217,119,6,0.25);border-radius:8px;padding:9px 12px}
+.tp-alert b{font-weight:800}
+.tp-log{list-style:none;display:flex;flex-direction:column;gap:9px}
+.tp-log li{font-size:11.5px;color:var(--ink2);line-height:1.65;padding-left:44px;position:relative}
+.tp-log li .d{position:absolute;left:0;top:1px;font-size:10px;font-weight:800;color:var(--ink3);background:var(--card2);border:1px solid var(--border);border-radius:4px;padding:1px 5px;min-width:38px;text-align:center}
+.tp-log li b{color:var(--ink);font-weight:700}
+.tp-log li.nx{color:var(--ink3)}
+.tp-log li.nx .d{background:var(--v1bg);border-color:rgba(37,99,235,0.3);color:var(--v1)}
+.tp-log li.none{padding-left:15px;color:var(--ink3)}
+.tp-log li.none::before{content:"·";position:absolute;left:2px;top:0;font-weight:900}
+.tp-note{background:var(--card2);border:1px solid var(--border);border-radius:0 0 12px 12px;padding:14px 20px;font-size:12px;color:var(--ink2);line-height:1.75}
+.tp-note b{color:var(--ink);font-weight:700}
+@media (max-width:820px){
+  .tab-nav{gap:4px}
+  .tab-btn{min-width:96px;font-size:11.5px;padding:9px 8px}
+  .tp-kpi{grid-template-columns:1fr 1fr}
+  .tp-body{grid-template-columns:1fr}
+}
+
+.sum-list li.sub{margin-left:13px;font-size:11.5px;color:var(--ink3)}
+.sum-list li.sub::before{content:"·";font-weight:900;opacity:.7}
+
+.tbl-wrap{overflow-x:auto}
+.goal-tbl th,.goal-tbl td{white-space:normal;word-break:keep-all;line-height:1.55}
+.goal-tbl td.mono,.goal-tbl th.mono{white-space:nowrap}
+.goal-tbl td:first-child{min-width:104px}
+.fix-tbl th,.fix-tbl td{white-space:normal;word-break:keep-all}
+.fix-tbl td.mono{white-space:nowrap}
+.goal-tbl td[rowspan]{vertical-align:middle;font-size:11.5px;line-height:1.5;text-align:left}
+.chart-card svg{overflow:visible}
+.tp-target{margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
+.tp-target .fix-tbl{margin-top:10px;border:1px solid var(--border)}
+.tp-target .tp-alert{margin-top:10px}
+
+.cell-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin:0}
+.cell-list li{position:relative;padding-left:13px;line-height:1.6;word-break:keep-all}
+.cell-list li::before{content:"·";position:absolute;left:2px;top:-1px;font-weight:900;color:var(--ink3)}
+.goal-tbl td .cell-list{font-size:12px}
+
+
+.tldr-foot{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border2);font-size:11px;color:var(--ink3);line-height:1.7}
+.verdict{display:inline-block;font-size:10.5px;font-weight:800;padding:2px 8px;border-radius:5px;white-space:nowrap}
+.v-ok{background:var(--v2bg);color:var(--done)}.v-part{background:var(--warnbg);color:var(--warn)}.v-no{background:var(--blockbg);color:var(--block)}.v-hold{background:var(--card2);color:var(--ink3)}
+
+.pt{display:grid;gap:12px;margin-top:16px}
+.pt.c2{grid-template-columns:repeat(2,1fr)}.pt.c3{grid-template-columns:repeat(3,1fr)}
+.pt-item{background:var(--card);border:1px solid var(--border);border-left:5px solid var(--v1);border-radius:10px;padding:14px 18px}
+.pt-item.good{border-left-color:var(--done)}.pt-item.warn{border-left-color:var(--warn)}.pt-item.bad{border-left-color:var(--block)}
+.pt-k{font-size:12px;font-weight:800;color:var(--ink2);margin-bottom:6px}
+.pt-v{font-size:21px;font-weight:900;letter-spacing:-.02em;line-height:1.25;color:var(--ink)}
+.pt-item.good .pt-v{color:var(--done)}.pt-item.warn .pt-v{color:var(--warn)}.pt-item.bad .pt-v{color:var(--block)}
+.pt-d{font-size:12.5px;color:var(--ink3);margin-top:6px;line-height:1.55}
+.cell-list li{font-size:13px;line-height:1.65}
+.bl{list-style:none;display:flex;flex-direction:column;gap:5px;margin:0;padding:0}
+.bl li{font-size:13px;line-height:1.6;color:var(--ink2);padding-left:14px;position:relative}
+.bl li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--ink3)}
+.bl li b{color:var(--ink)}
+.bl li.w{color:var(--warn)}.bl li.w::before{background:var(--warn)}
+.note-s{font-size:11.5px;color:var(--ink3);margin-top:8px;line-height:1.6}
+.ins-body .bl{margin:10px 0}
+.act-t{font-size:13.5px;font-weight:800;line-height:1.4}
+.tp-body.tgl{display:block;background:var(--card);padding:4px 20px 8px}
+.tgd{border-top:1px solid var(--border)}.tgd:first-child{border-top:none}
+.tgd>summary{list-style:none;cursor:pointer;padding:13px 2px;font-size:13px;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:8px}
+.tgd>summary::-webkit-details-marker{display:none}
+.tgd>summary::before{content:"▸";color:var(--ink3);display:inline-block;width:12px;text-align:center;transition:transform .15s}
+.tgd[open]>summary::before{transform:rotate(90deg)}
+.tgd>summary:hover{color:var(--v1)}
+.tgd-b{padding:0 2px 14px}
+@media (prefers-reduced-motion:reduce){.tgd>summary::before{transition:none}}
+.mp{cursor:pointer}.mp:hover td{filter:brightness(.97)}.mp:focus-visible{outline:2px solid var(--v1);outline-offset:-2px}
+.mp .tg{display:inline-block;width:12px;margin-right:6px;text-align:center;line-height:1;vertical-align:middle;transform-origin:50% 50%;color:var(--ink3);transition:transform .15s}
+.mp.open .tg{transform:rotate(90deg)}
+.mc{display:none}.mc.show{display:table-row}
+.mc td:first-child{padding-left:30px}
+.mnote td{background:var(--card2)!important;padding:14px 18px!important;text-align:left!important}
+.mn-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.mn{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+.mn-hd{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px}
+.mn-v{font-size:12px;font-weight:800;color:var(--ink2)}.mn-v.pos{color:var(--done)}.mn-v.neg{color:var(--block)}
+.mt-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.mt-all{font:inherit;font-size:12px;font-weight:700;padding:5px 12px;border-radius:6px;border:1px solid var(--border2);background:var(--card);cursor:pointer}
+@media (prefers-reduced-motion:reduce){.mp .tg{transition:none}}
+.goal-tbl th.nm,.goal-tbl td.nm{text-align:left;white-space:nowrap}.goal-tbl td.ct{text-align:center}
+.tbl-wrap .note-s{padding:0 14px 12px}
+
+/* ===== 3주차 추가 ===== */
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg)}
+.hdr{background:#1a1a1a}
+.verdict.v-ok{background:var(--v2bg);color:var(--done);border:1px solid rgba(22,163,74,.3)}
+.verdict.v-part{background:var(--warnbg);color:var(--warn);border:1px solid rgba(217,119,6,.3)}
+.verdict.v-no{background:var(--blockbg);color:var(--block);border:1px solid rgba(220,38,38,.3)}
+.verdict.v-wait{background:var(--card2);color:var(--ink3);border:1px dashed var(--border2)}
+.tldr-foot{margin-top:14px;font-size:11px;color:var(--ink3);line-height:1.7}
+.svg-t{fill:var(--ink)}.svg-t2{fill:var(--ink2)}.svg-t3{fill:var(--ink3)}.svg-ax{stroke:var(--border2)}
+.leg{display:flex;gap:16px;flex-wrap:wrap;font-size:11.5px;color:var(--ink2);margin-bottom:8px}
+.leg i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.tbl-wrap{overflow-x:auto}
+.fix-tbl{min-width:520px}
+.tgd-b{overflow-x:auto}
+@media (max-width:820px){.tldr-grid{grid-template-columns:1fr 1fr}.pt.c2,.pt.c3{grid-template-columns:1fr}.tp-kpi{grid-template-columns:1fr 1fr}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#131312;--card:#1d1d1b;--card2:#252523;--border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.16);
+  --ink:#ecebe7;--ink2:#c2c1bb;--ink3:#8d8c86;--v1:#60a5fa;--done:#4ade80;--block:#f87171;--warn:#fbbf24}
+  :root:not([data-theme="light"]) .tldr-badge,:root:not([data-theme="light"]) .tab-btn.active,:root:not([data-theme="light"]) .tldr-list li::before{color:#131312}
+  :root:not([data-theme="light"]) .gfa-toggle summary:hover{background:#2c2c29}}
+:root[data-theme="dark"]{--bg:#131312;--card:#1d1d1b;--card2:#252523;--border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.16);
+  --ink:#ecebe7;--ink2:#c2c1bb;--ink3:#8d8c86;--v1:#60a5fa;--done:#4ade80;--block:#f87171;--warn:#fbbf24}
+:root[data-theme="dark"] .tldr-badge,:root[data-theme="dark"] .tab-btn.active,:root[data-theme="dark"] .tldr-list li::before{color:#131312}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div><div class="hdr-tag">SLOOM · MARKETING TEAM</div><div class="hdr-title">9월 3주차 운영 보고 <em>· 메이크업안 9/23 달성 예상</em></div></div>
+  <div class="hdr-right"><div class="hdr-week">2026. 09. 14 – 09. 20</div><div class="hdr-meta">KPI 9/14~9/20 · 매체 9/15~9/21<br>진척 9/1~9/21 · 틱톡 9/15~9/20</div></div>
+</div>
+<div class="wrap">
+<div class="tldr">
+  <div class="tldr-hd"><div class="tldr-badge">9월 3주차 요약</div></div>
+  <div class="tldr-grid">
+    <div class="tldr-cell"><div class="l">주간 매출 <span class="est">4 SKU</span></div><div class="v">3.016<em>억</em></div><div class="s up">▲ +15.3% (전주 2.615억)</div></div>
+    <div class="tldr-cell"><div class="l">주간 공헌이익</div><div class="v">6,137<em>만</em></div><div class="s up">▲ +11.1% (전주 5,522만)</div></div>
+    <div class="tldr-cell"><div class="l">공헌율 / ROAS</div><div class="v">20.4<em>% · 207%</em></div><div class="s dn">▼ −0.8%p · 광고비 +16.7%</div></div>
+    <div class="tldr-cell"><div class="l">9월 CI 진척 <span class="est">기본안 / 메이크업안</span></div><div class="v">127.0<em>% / 90.3%</em></div><div class="s fl">기간 경과 70.0% · 발편케 제외 보정</div></div>
+  </div>
+<div class="pt c2">
+<div class="pt-item good"><div class="pt-k">① 메이크업안 9/23 달성 예상</div><div class="pt-v">CI 필요 일 204만 · 현재 일 1,147만</div><div class="pt-d">남은 CI 1,837만은 현재 페이스로 약 2일 치 — 추석 전(9/23 전후) 달성 예상</div></div>
+<div class="pt-item warn"><div class="pt-k">② 목베개 매출↑ 이익 제자리</div><div class="pt-v">매출 +21.5% · CI +4.5%</div><div class="pt-d">광고비 +29.2% · 공헌율 24.7% → 21.2% — 증액분 2,440만이 CI 198만만 추가</div></div>
+<div class="pt-item good"><div class="pt-k">③ 허편케 공헌율 10% 복귀</div><div class="pt-v">공헌율 5.5% → 13.5%</div><div class="pt-d">9월 1~2주 미달 후 복귀 · CI 166만 → 488만 · META 저효율 OFF 효과</div></div>
+<div class="pt-item warn"><div class="pt-k">④ 팔꿈치 — 매체는 급락, 이익은 유지</div><div class="pt-v">META ROAS 169% → 128%</div><div class="pt-d">실매출은 −10.1%에 그치고 CI는 +0.9% · 광고비를 줄여 이익을 지킴</div></div>
+</div>
+</div>
+<!-- 01 --><div class="sec"><div class="sec-hdr"><div class="sec-num">01</div><div class="sec-title">지난주 액션 <small>9월 3주차 실행 보고 · 7개</small></div><div class="unit n">검증</div></div>
+<div class="tbl-wrap"><table class="goal-tbl"><thead><tr><th>#</th><th class="nm">지난주 액션</th><th style="text-align:center">판정</th><th style="text-align:left">핵심 근거 (KPI 9/14~9/20 · 매체 9/15~9/21)</th></tr></thead><tbody>
+<tr style="background:var(--warnbg)"><td class="mono"><b>1</b></td><td class="nm"><div class="act-t">🔍 구글 재진입 · PMAX</div></td><td class="ct"><span class="verdict v-part">집행 · 효율 미달</span></td><td style="text-align:left"><ul class="bl"><li>9/15 개시 · 7일 <b>868만</b> → 매출 978만 · ROAS <b>113%</b> · 후반 3일 159%</li><li>목V2 552만 112% · 허리 160만 131% · 미분류 158만 113% <span class="est">9/14~9/21</span></li><li>계획 80만 대비 실집행 일 평균 <b>124만</b> — 계획 단위(일/주) 확인 필요</li></ul></td></tr><tr><td class="mono"><b>2</b></td><td class="nm"><div class="act-t">🔎 SA 키워드 정리</div></td><td class="ct"><span class="verdict v-part">부분 · 확인 필요</span></td><td style="text-align:left"><ul class="bl"><li>쇼핑검색 광고비 704만 → 646만 · ROAS 381% → <b>393%</b></li><li>파워링크 ROAS 481% → <b>665%</b> · 전환 135 → 198</li><li>키워드 · 시간대 표가 9월 누적이라 OFF · 20시 하향 반영 여부는 직접 확인 불가 (쇼검 20시 누적 148%로 여전히 최저)</li></ul></td></tr><tr><td class="mono"><b>3</b></td><td class="nm"><div class="act-t">📊 GFA · 틱톡</div></td><td class="ct"><span class="verdict v-part">부분</span></td><td style="text-align:left"><ul class="bl"><li>애드부스트 <b>612만 → 626만</b> — 거의 그대로 · ROAS 319% → 278%</li><li>틱톡 61만 → 104만 (6일) · ROAS 192% → <b>207%</b> · 9/16 기존고효율 5 → 20만</li></ul></td></tr><tr style="background:var(--v2bg)"><td class="mono"><b>4</b></td><td class="nm"><div class="act-t">💪 허편케 공헌율 10% 회복</div></td><td class="ct"><span class="verdict v-ok">달성</span></td><td style="text-align:left"><ul class="bl"><li>공헌율 <b>5.5% → 13.5%</b> (목표 10%) · CI 166만 → 488만</li><li>9/15~16 프로모션 · 썰형식 · 8월1주차 · 기존재활용 OFF, PA 15 → 10만</li><li>다만 기존재활용(유지 대상 163%)도 꺼졌고, 신규소구점 OFF · 기존고효율 감액은 이력에 없음</li></ul></td></tr><tr style="background:var(--warnbg)"><td class="mono"><b>5</b></td><td class="nm"><div class="act-t">💪 팔꿈치 정리 · 신금동 확대</div></td><td class="ct"><span class="verdict v-part">부분 · 이익 유지</span></td><td style="text-align:left"><ul class="bl"><li>프로모션 OFF 9/16 · PA · 질병 OFF 9/18 (계획보다 4일 늦음) · 신금동 60 → 100만 9/14</li><li>실매출 4,835만 → 4,345만 (−10.1%) · CI 743만 → <b>749만</b> · 공헌율 15.4 → 17.2%</li><li>META ROAS는 169% → <b>128%</b> — 9/17~9/19 3일 연속 100% 미만</li></ul></td></tr><tr style="background:var(--warnbg)"><td class="mono"><b>6</b></td><td class="nm"><div class="act-t">🎬 김영옥 BDC 효율 관리</div></td><td class="ct"><span class="verdict v-part">부분 · META 대기</span></td><td style="text-align:left"><ul class="bl"><li>META 200 → 250만 (9/15) · GFA 피드 60 → 80 → 100만 (9/15 · 9/18)</li><li>GFA BDC 피드 ROAS <b>424% → 245%</b> · 브랜드검색 일 매출 9/16 1,219만 → 9/21 767만</li></ul></td></tr><tr style="background:var(--warnbg)"><td class="mono"><b>7</b></td><td class="nm"><div class="act-t">📐 증액 규칙</div></td><td class="ct"><span class="verdict v-part">부분</span></td><td style="text-align:left"><ul class="bl"><li>GFA BDC 피드 9/15 +31% · 9/18 +25% — 1회 +30% 이내는 대체로 준수</li><li>9/18 증액 당일 ROAS <b>400 → 196%</b> (−204%p) — 규칙상 직전 예산 복귀 대상인데 100만 유지</li></ul></td></tr>
+</tbody></table></div></div>
+<!-- 02 --><div class="sec"><div class="sec-hdr"><div class="sec-num">02</div><div class="sec-title">주차 추이 · 9월 진척 <small>8월 1주 ~ 9월 3주 · 주력 4 SKU</small></div><div class="unit w">주 단위</div></div>
+<div class="chart-card"><div class="leg"><span><i style="background:#2563eb"></i>주간 매출 (막대)</span><span><i style="background:#16a34a"></i>주간 공헌이익 (선)</span></div><svg viewBox="0 0 900 270" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="주차별 4 SKU 매출과 공헌이익"><line class="svg-ax" x1="30" y1="215" x2="880" y2="215" stroke-width="1.2"/><rect x="45" y="151.7" width="90" height="63.3" fill="#2563eb" opacity="0.35" rx="3"/><text class="svg-t" x="90" y="143.7" text-anchor="middle" font-size="12.5" font-weight="800">1.273억</text><text class="svg-t2" x="90" y="233" text-anchor="middle" font-size="12" font-weight="700">8월 1주</text><text class="svg-t3" x="90" y="249" text-anchor="middle" font-size="11" font-weight="600">공헌율 4.8%</text><rect x="165" y="146.5" width="90" height="68.5" fill="#2563eb" opacity="0.46" rx="3"/><text class="svg-t" x="210" y="138.5" text-anchor="middle" font-size="12.5" font-weight="800">1.378억</text><text class="svg-t2" x="210" y="233" text-anchor="middle" font-size="12" font-weight="700">8월 2주</text><text class="svg-t3" x="210" y="249" text-anchor="middle" font-size="11" font-weight="600">공헌율 10.5%</text><rect x="285" y="137.9" width="90" height="77.1" fill="#2563eb" opacity="0.57" rx="3"/><text class="svg-t" x="330" y="129.9" text-anchor="middle" font-size="12.5" font-weight="800">1.549억</text><text class="svg-t2" x="330" y="233" text-anchor="middle" font-size="12" font-weight="700">8월 3주</text><text class="svg-t3" x="330" y="249" text-anchor="middle" font-size="11" font-weight="600">공헌율 10.3%</text><rect x="405" y="104.5" width="90" height="110.5" fill="#2563eb" opacity="0.68" rx="3"/><text class="svg-t" x="450" y="96.5" text-anchor="middle" font-size="12.5" font-weight="800">2.222억</text><text class="svg-t2" x="450" y="233" text-anchor="middle" font-size="12" font-weight="700">8월 4주</text><text class="svg-t3" x="450" y="249" text-anchor="middle" font-size="11" font-weight="600">공헌율 15.9%</text><rect x="525" y="100.9" width="90" height="114.1" fill="#2563eb" opacity="0.78" rx="3"/><text class="svg-t" x="570" y="92.9" text-anchor="middle" font-size="12.5" font-weight="800">2.295억</text><text class="svg-t2" x="570" y="233" text-anchor="middle" font-size="12" font-weight="700">9월 1주</text><text class="svg-t3" x="570" y="249" text-anchor="middle" font-size="11" font-weight="600">공헌율 10.4%</text><rect x="645" y="84.9" width="90" height="130.1" fill="#2563eb" opacity="0.89" rx="3"/><text class="svg-t" x="690" y="76.9" text-anchor="middle" font-size="12.5" font-weight="800">2.615억</text><text class="svg-t2" x="690" y="233" text-anchor="middle" font-size="12" font-weight="700">9월 2주</text><text class="svg-t3" x="690" y="249" text-anchor="middle" font-size="11" font-weight="600">공헌율 21.1%</text><rect x="765" y="65.0" width="90" height="150.0" fill="#2563eb" opacity="1.00" rx="3"/><text class="svg-t" x="810" y="57.0" text-anchor="middle" font-size="12.5" font-weight="800">3.016억</text><text class="svg-t2" x="810" y="233" text-anchor="middle" font-size="12" font-weight="700">9월 3주</text><text class="svg-t3" x="810" y="249" text-anchor="middle" font-size="11" font-weight="600">공헌율 20.4%</text><polyline fill="none" stroke="#16a34a" stroke-width="3" points="90,183.0 210,166.6 330,163.8 450,126.0 570,148.2 690,87.0 810,75.0"/><circle cx="90" cy="183.0" r="4.5" fill="#16a34a"/><text x="90" y="200.0" text-anchor="middle" font-size="11" font-weight="800" fill="#16a34a" paint-order="stroke" stroke="var(--card)" stroke-width="3">615만</text><circle cx="210" cy="166.6" r="4.5" fill="#16a34a"/><text x="210" y="183.6" text-anchor="middle" font-size="11" font-weight="800" fill="#16a34a" paint-order="stroke" stroke="var(--card)" stroke-width="3">1,452만</text><circle cx="330" cy="163.8" r="4.5" fill="#16a34a"/><text x="330" y="180.8" text-anchor="middle" font-size="11" font-weight="800" fill="#16a34a" paint-order="stroke" stroke="var(--card)" stroke-width="3">1,597만</text><circle cx="450" cy="126.0" r="4.5" fill="#16a34a"/><text x="450" y="143.0" text-anchor="middle" font-size="11" font-weight="800" fill="#16a34a" paint-order="stroke" stroke="var(--card)" stroke-width="3">3,527만</text><circle cx="570" cy="148.2" r="4.5" fill="#16a34a"/><text x="570" y="165.2" text-anchor="middle" font-size="11" font-weight="800" fill="#16a34a" paint-order="stroke" stroke="var(--card)" stroke-width="3">2,392만</text><circle cx="690" cy="87.0" r="4.5" fill="#16a34a"/><text x="690" y="104.0" text-anchor="middle" font-size="11" font-weight="800" fill="#16a34a" paint-order="stroke" stroke="var(--card)" stroke-width="3">5,522만</text><circle cx="810" cy="75.0" r="4.5" fill="#16a34a"/><text x="810" y="92.0" text-anchor="middle" font-size="11" font-weight="800" fill="#16a34a" paint-order="stroke" stroke="var(--card)" stroke-width="3">6,137만</text></svg>
+<div class="note-s">매출은 7주 연속 최고치(3.016억)지만 공헌이익은 5,522만 → 6,137만로 매출만큼 오르지 못함. 공헌율 21.1% → 20.4%. 광고비 1.246억 → 1.454억 (+16.7%) 중 목베개 증가분이 2,440만.</div></div>
+
+<div class="sub-hd"><div class="sub-hd-t">9월 진척도 · 팀 기준</div><div class="sub-hd-d">9/1~9/21 · 기간 경과 70.0% (세로선) · 발편케 · 바풀컷 제외 · 잔여 9일 고정비 −450만 선반영</div></div>
+<div class="goal-card"><div class="goal-item"><div class="goal-item-top"><div class="goal-name">기본안 · 매출</div><div class="goal-fig">목표 8.95억 · 누적 <b>9.013억</b> · 초과 달성</div></div>
+<div class="goal-track"><div class="goal-fill" style="width:100.0%;background:#16a34a">100.7%</div><div style="position:absolute;top:0;bottom:0;left:70%;width:2px;background:var(--ink3)"></div></div></div><div class="goal-item"><div class="goal-item-top"><div class="goal-name">기본안 · 공헌이익</div><div class="goal-fig">목표 1.35억 · 누적 <b>1.715억</b> · 초과 달성</div></div>
+<div class="goal-track"><div class="goal-fill" style="width:100.0%;background:#16a34a">127.0%</div><div style="position:absolute;top:0;bottom:0;left:70%;width:2px;background:var(--ink3)"></div></div></div><div class="goal-item"><div class="goal-item-top"><div class="goal-name">메이크업안 · 매출</div><div class="goal-fig">목표 10.13억 · 남은 1.117억 · 일 1,241만 필요 (현재 일 4,769만)</div></div>
+<div class="goal-track"><div class="goal-fill" style="width:89.0%;background:#2563eb">89.0%</div><div style="position:absolute;top:0;bottom:0;left:70%;width:2px;background:var(--ink3)"></div></div></div><div class="goal-item"><div class="goal-item-top"><div class="goal-name">메이크업안 · 공헌이익</div><div class="goal-fig">목표 1.899억 · 남은 1,837만 · 일 204만 필요 (현재 일 1,147만)</div></div>
+<div class="goal-track"><div class="goal-fill" style="width:90.3%;background:#2563eb">90.3%</div><div style="position:absolute;top:0;bottom:0;left:70%;width:2px;background:var(--ink3)"></div></div></div></div>
+<div class="goodflag"><div class="goodflag-hd"><span class="goodflag-badge">예상</span><span class="goodflag-t">기본안 초과 달성, 메이크업안도 추석 전 달성 예상</span></div>
+<ul><li><div><div class="gf-t">메이크업안 CI 필요 페이스 115% (2주차 초) → 94% (2주차 말) → 이번 주 현재 페이스의 18%</div><div class="gf-d">남은 CI 1,837만을 9일에 나누면 일 204만 — 최근 7일 평균 일 1,147만이면 <b>9/23 전후</b> 달성. 추석 연휴(9/24~26)에 매출이 멈춰도 목표는 채울 수 있음 — 연휴 · 배송 마감에 맞춰 전체 캠페인 예산은 감액</div></div></li>
+<li><div><div class="gf-t">변수는 이익을 깎는 일회성 비용</div><div class="gf-d">9/10처럼 하루 CI −515만이 찍히는 날이 한 번 더 오면 하루 반이 밀림. 연휴 전 정산 · 반품 일정 확인 필요</div></div></li></ul></div>
+
+<div class="sub-hd"><div class="sub-hd-t">주력 4 SKU 분해</div><div class="sub-hd-d">9월 누적 9/1~9/21 · 주간 9/14~9/20 · CI 목표는 2주차 보고 기준</div></div>
+<div class="tbl-wrap"><table class="goal-tbl"><thead><tr><th>제품</th><th>9월 목표</th><th>누적 매출</th><th>진도</th><th>CI 목표</th><th>누적 CI</th><th>CI 진도</th><th>주간 매출</th><th>주간 CI</th><th>공헌율</th></tr></thead><tbody><tr style="background:var(--v2bg)"><td>💤 목베개</td><td class="mono">4.000억</td><td class="mono g-rev">5.546억</td><td class="mono"><b>138.7%</b></td><td class="mono">7,200만</td><td class="mono g-ci">1.075억</td><td class="mono"><b>149.3%</b></td><td class="mono">2.156억</td><td class="mono">4,573만</td><td class="mono">21.2%</td></tr><tr><td>💪 허편케V2</td><td class="mono">1.000억</td><td class="mono g-rev">9,505만</td><td class="mono"><b>95.0%</b></td><td class="mono">1,500만</td><td class="mono g-ci">728만</td><td class="mono"><b>48.5%</b></td><td class="mono">3,603만</td><td class="mono">488만</td><td class="mono">13.5%</td></tr><tr><td>💪 팔꿈치</td><td class="mono">1.700억</td><td class="mono g-rev">1.338억</td><td class="mono"><b>78.7%</b></td><td class="mono">2,550만</td><td class="mono g-ci">2,114만</td><td class="mono"><b>82.9%</b></td><td class="mono">4,345만</td><td class="mono">749만</td><td class="mono">17.2%</td></tr><tr style="background:var(--blockbg)"><td>🤰 골반</td><td class="mono">1.350억</td><td class="mono g-rev">1,547만</td><td class="mono"><b>11.5%</b></td><td class="mono">1,350만</td><td class="mono g-ci">688만</td><td class="mono"><b>51.0%</b></td><td class="mono">648만</td><td class="mono">327만</td><td class="mono">50.5%</td></tr><tr style="background:var(--card2)"><td><b>주력 4 SKU</b></td><td class="mono">8.050억</td><td class="mono g-rev"><b>7.990억</b></td><td class="mono"><b>99.2%</b></td><td class="mono">1.260억</td><td class="mono g-ci"><b>1.428억</b></td><td class="mono"><b>113.3%</b></td><td class="mono">3.016억</td><td class="mono">6,137만</td><td class="mono">20.4%</td></tr></tbody></table>
+<div class="tbl-cap">목베개는 매출 · CI 모두 월 목표를 이미 넘김. 팔꿈치는 CI 82.9%로 월말 달성 가능, 골반은 매출 진도 11.5%로 목표 재설정이 필요. 허편케는 매출은 95%인데 CI는 48.5% — 9월 1~2주 공헌율 0~6%에 머문 탓.</div></div>
+</div>
+<!-- 03 --><div class="sec"><div class="sec-hdr"><div class="sec-num">03</div><div class="sec-title">제품별 성과 <small>KPI 9/14~9/20 vs 9/7~9/13 · 매체 9/15~9/21</small></div><div class="unit w">주 단위</div></div>
+<div class="tabs"><div class="tab-nav"><button class="tab-btn active" data-tab="t-neck">💤 목베개</button><button class="tab-btn" data-tab="t-back">💪 허편케V2</button><button class="tab-btn" data-tab="t-elbow">💪 팔꿈치</button><button class="tab-btn" data-tab="t-pelvis">🤰 골반</button></div>
+<div class="tab-panel active" id="t-neck">
+<div class="tp-hd"><div class="tp-t">목베개 통합 <span class="tp-chip" style="background:var(--v2bg);color:var(--done)">9월 목표 초과</span> <span class="tp-chip" style="background:var(--warnbg);color:var(--warn)">증액 대비 이익 적음</span></div><div class="tp-d">9월 누적 5.546억 (139%) · CI 1.075억 (149%) · 이번 주 광고비 +29.2%에 매출 +21.5%, CI +4.5%</div></div>
+<div class="tp-kpi">
+<div class="tp-cell feat"><div class="l">주간 매출</div><div class="v">2.156억</div><div class="s up">▲ <b>+21.5%</b> (1.774억)</div></div>
+<div class="tp-cell feat"><div class="l">주간 공헌이익</div><div class="v">4,573만</div><div class="s up">▲ <b>+4.5%</b> (4,375만)</div></div>
+<div class="tp-cell "><div class="l">공헌율</div><div class="v">21.2<em>%</em></div><div class="s dn">▼ −3.5%p (24.7%)</div></div>
+<div class="tp-cell "><div class="l">총광고비 ROAS <span class="est">KPI 시트</span></div><div class="v">200<em>%</em></div><div class="s dn">광고비 1.080억 (+29.2%)</div></div>
+</div><div class="tp-kpi" style="border-top:1px solid var(--border)"><div class="tp-cell "><div class="l">META <span class="est">9/15~21</span></div><div class="v">8,879만 · 200<em>%</em></div><div class="s up">195% → 200%</div></div><div class="tp-cell "><div class="l">GFA</div><div class="v">1,380만 · 264<em>%</em></div><div class="s up">254% → 264%</div></div><div class="tp-cell featneg"><div class="l">GFA BDC 피드</div><div class="v">619만 · 245<em>%</em></div><div class="s dn">424% → 245%</div></div><div class="tp-cell "><div class="l">구글 목V2 <span class="est">9/14~21</span></div><div class="v">552만 · 112<em>%</em></div><div class="s fl">틱톡 100만 · 215%</div></div></div><div class="tp-body tgl" style="border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px"><details class="tgd"><summary>실행 이력 (KPI 시트)</summary><div class="tgd-b"><ul class="bl"><li>9/14 BDC 130 → 150 → 200만 · AI레고 8 → 10만 · GFA BDC 피드 40 → 60만</li><li>9/15 BDC 200 → <b>250만</b> · GFA BDC 피드 60 → 80만</li><li>9/16 버섯목 140 → 160만 · 틱톡 기존고효율 5 → 20만 · 구글 슬룸SA 10 → 20만</li><li>9/17 올AI 20 → 35만 · PA_신규고효율 40 → 20만</li><li>9/18 GFA BDC 피드 80 → <b>100만</b></li><li>9/22 기존고효율 60 → 40 · 버섯목 160 → 130 · 일자목 160 → 130 · 이미지 60 → 40 · 거북목 OFF <span class="est">4주차 구간</span></li></ul></div></details><details class="tgd"><summary>GFA 캠페인별 · 괄호는 전주</summary><div class="tgd-b"><table class="fix-tbl"><thead><tr><th>GFA 캠페인</th><th>광고비</th><th>매출</th><th>ROAS</th><th>전환</th></tr></thead><tbody><tr style="background:var(--warnbg)"><td><b>김영옥BDC_피드</b> <span class="est">9/10~</span></td><td class="mono">619만 <span class="carry">(185만)</span></td><td class="mono">1,515만</td><td class="mono neg">245% <span class="carry">(424)</span></td><td class="mono">124</td></tr>
+<tr style="background:var(--v2bg)"><td><b>260616_논타겟팅_피드</b></td><td class="mono">283만 <span class="carry">(277만)</span></td><td class="mono">971만</td><td class="mono pos">343% <span class="carry">(213)</span></td><td class="mono">58</td></tr>
+<tr style="background:var(--v2bg)"><td><b>260616_리타겟팅_피드</b></td><td class="mono">271만 <span class="carry">(263만)</span></td><td class="mono">854만</td><td class="mono pos">316% <span class="carry">(234)</span></td><td class="mono">72</td></tr>
+<tr style="background:var(--blockbg)"><td><b>자사몰_프로모션</b></td><td class="mono">68만 <span class="carry">(70만)</span></td><td class="mono">94만</td><td class="mono neg">138% <span class="carry">(225)</span></td><td class="mono">7</td></tr>
+<tr style="background:var(--blockbg)"><td><b>김영옥BDC (숏클립)</b></td><td class="mono">70만 <span class="carry">(50만)</span></td><td class="mono">50만</td><td class="mono pos">71% <span class="carry">(0)</span></td><td class="mono">4</td></tr>
+<tr><td><b>목베개플러스_피드</b></td><td class="mono">69만 <span class="carry">(69만)</span></td><td class="mono">158만</td><td class="mono neg">230% <span class="carry">(256)</span></td><td class="mono">19</td></tr>
+</tbody></table></div></details><details class="tgd"><summary>일자별 (META · GFA)</summary><div class="tgd-b"><table class="fix-tbl"><thead><tr><th>일자</th><th>META 광고비</th><th>META ROAS</th><th>META 전환</th><th>GFA 광고비</th><th>GFA ROAS</th><th>GFA 전환</th></tr></thead><tbody><tr><td>9/14 (월)</td><td class="mono">1119만</td><td class="mono ">199%</td><td class="mono">197</td><td class="mono">168만</td><td class="mono ">257%</td><td class="mono">37</td></tr><tr><td>9/15 (화)</td><td class="mono">1154만</td><td class="mono ">208%</td><td class="mono">222</td><td class="mono">187만</td><td class="mono ">250%</td><td class="mono">40</td></tr><tr><td>9/16 (수)</td><td class="mono">1244만</td><td class="mono ">175%</td><td class="mono">201</td><td class="mono">185만</td><td class="mono ">224%</td><td class="mono">34</td></tr><tr><td>9/17 (목)</td><td class="mono">1194만</td><td class="mono ">193%</td><td class="mono">218</td><td class="mono">186만</td><td class="mono ">276%</td><td class="mono">39</td></tr><tr><td>9/18 (금)</td><td class="mono">1203만</td><td class="mono ">194%</td><td class="mono">218</td><td class="mono">206만</td><td class="mono ">350%</td><td class="mono">42</td></tr><tr><td>9/19 (토)</td><td class="mono">1348만</td><td class="mono ">220%</td><td class="mono">262</td><td class="mono">202만</td><td class="mono ">272%</td><td class="mono">47</td></tr><tr><td>9/20 (일)</td><td class="mono">1456만</td><td class="mono ">217%</td><td class="mono">286</td><td class="mono">203만</td><td class="mono ">283%</td><td class="mono">46</td></tr><tr><td>9/21 (월)</td><td class="mono">1279만</td><td class="mono ">190%</td><td class="mono">228</td><td class="mono">213만</td><td class="mono ">191%</td><td class="mono">36</td></tr></tbody></table></div></details><details class="tgd"><summary>확인 사항</summary><div class="tgd-b"><ul class="bl"><li>META 주차 시트 기준 목V2 7,746만 · 198% · 목베개플러스 973만 · 228% · 목V2 재방문자 41.2 → 41.0%</li><li>META 신규 테스트 <b>목편한케어플라잉</b> 48만 → 제품 매출 144만 · CI 44만 (9/15~9/21)</li></ul></div></details></div></div><div class="tab-panel" id="t-back">
+<div class="tp-hd"><div class="tp-t">허리편한케어V2 <span class="tp-chip" style="background:var(--v2bg);color:var(--done)">공헌율 10% 복귀</span> <span class="tp-chip" style="background:var(--blockbg);color:var(--block)">GFA BDC 100% 미만</span></div><div class="tp-d">9월 누적 9,505만 (95%) · CI 728만 (49%) · 광고비는 줄이고 매출은 늘림</div></div>
+<div class="tp-kpi">
+<div class="tp-cell feat"><div class="l">주간 매출</div><div class="v">3,603만</div><div class="s up">▲ <b>+18.7%</b> (3,036만)</div></div>
+<div class="tp-cell feat"><div class="l">주간 공헌이익</div><div class="v">488만</div><div class="s up">▲ <b>+193.1%</b> (166만)</div></div>
+<div class="tp-cell "><div class="l">공헌율</div><div class="v">13.5<em>%</em></div><div class="s up">▲ +8.1%p (5.5%)</div></div>
+<div class="tp-cell "><div class="l">총광고비 ROAS <span class="est">KPI 시트</span></div><div class="v">233<em>%</em></div><div class="s up">광고비 1,547만 (−2.9%)</div></div>
+</div><div class="tp-kpi" style="border-top:1px solid var(--border)"><div class="tp-cell "><div class="l">META <span class="est">9/15~21</span></div><div class="v">1,101만 · 174<em>%</em></div><div class="s up">137% → 174% · 일 157만</div></div><div class="tp-cell featneg"><div class="l">GFA V2</div><div class="v">160만 · 86<em>%</em></div><div class="s dn">110% → 86%</div></div><div class="tp-cell "><div class="l">GFA V1 신규 <span class="est">9/17~</span></div><div class="v">53만 · 174<em>%</em></div><div class="s up">전환 9</div></div><div class="tp-cell "><div class="l">구글 허리 <span class="est">9/14~21</span></div><div class="v">160만 · 131<em>%</em></div><div class="s fl">지난주 계획에 없던 집행</div></div></div><div class="tp-body tgl" style="border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px"><details class="tgd"><summary>실행 이력 (KPI 시트)</summary><div class="tgd-b"><ul class="bl"><li>9/15 V1 신규 10만 · 8월2주차 20 → 15만 · BDC 50 → 40만 · 프로모션 OFF · PA 15 → 10만</li><li>9/16 기존재활용 · 썰형식 · 8월1주차 OFF · 8월2주차 15 → 10만</li><li>9/18 BDC 40 → <b>60만</b></li></ul></div></details><details class="tgd"><summary>GFA 캠페인별 · 괄호는 전주</summary><div class="tgd-b"><table class="fix-tbl"><thead><tr><th>GFA 캠페인</th><th>광고비</th><th>매출</th><th>ROAS</th><th>전환</th></tr></thead><tbody><tr style="background:var(--blockbg)"><td><b>V2_김영옥BDC_피드</b></td><td class="mono">128만 <span class="carry">(107만)</span></td><td class="mono">117만</td><td class="mono neg">91% <span class="carry">(114)</span></td><td class="mono">7</td></tr>
+<tr style="background:var(--blockbg)"><td><b>V2_김영옥BDC (숏클립)</b></td><td class="mono">26만 <span class="carry">(36만)</span></td><td class="mono">21만</td><td class="mono neg">81% <span class="carry">(101)</span></td><td class="mono">2</td></tr>
+<tr><td><b>자사몰_프로모션</b> <span class="est">9/16 종료</span></td><td class="mono">6만 <span class="carry">(27만)</span></td><td class="mono">0</td><td class="mono neg">0% <span class="carry">(109)</span></td><td class="mono">0</td></tr>
+<tr style="background:var(--v2bg)"><td><b>V1_260917_논타겟팅_피드</b> <span class="est">9/17~ 신규</span></td><td class="mono">53만 <span class="carry">(신규)</span></td><td class="mono">92만</td><td class="mono ">174% <span class="carry"></span></td><td class="mono">9</td></tr>
+</tbody></table></div></details><details class="tgd"><summary>일자별 (META · GFA V2)</summary><div class="tgd-b"><table class="fix-tbl"><thead><tr><th>일자</th><th>META 광고비</th><th>META ROAS</th><th>META 전환</th><th>GFA 광고비</th><th>GFA ROAS</th><th>GFA 전환</th></tr></thead><tbody><tr><td>9/14 (월)</td><td class="mono">183만</td><td class="mono ">136%</td><td class="mono">17</td><td class="mono">40만</td><td class="mono ">127%</td><td class="mono">3</td></tr><tr><td>9/15 (화)</td><td class="mono">181만</td><td class="mono ">115%</td><td class="mono">13</td><td class="mono">32만</td><td class="mono neg">81%</td><td class="mono">1</td></tr><tr><td>9/16 (수)</td><td class="mono">148만</td><td class="mono ">215%</td><td class="mono">23</td><td class="mono">24만</td><td class="mono ">180%</td><td class="mono">3</td></tr><tr><td>9/17 (목)</td><td class="mono">122만</td><td class="mono ">217%</td><td class="mono">17</td><td class="mono">23만</td><td class="mono neg">85%</td><td class="mono">1</td></tr><tr><td>9/18 (금)</td><td class="mono">135만</td><td class="mono ">162%</td><td class="mono">15</td><td class="mono">23만</td><td class="mono neg">0%</td><td class="mono">0</td></tr><tr><td>9/19 (토)</td><td class="mono">162만</td><td class="mono ">169%</td><td class="mono">19</td><td class="mono">22만</td><td class="mono neg">0%</td><td class="mono">0</td></tr><tr><td>9/20 (일)</td><td class="mono">183만</td><td class="mono ">183%</td><td class="mono">25</td><td class="mono">22만</td><td class="mono ">128%</td><td class="mono">2</td></tr><tr><td>9/21 (월)</td><td class="mono">170만</td><td class="mono ">174%</td><td class="mono">22</td><td class="mono">15만</td><td class="mono ">147%</td><td class="mono">2</td></tr></tbody></table></div></details></div></div><div class="tab-panel" id="t-elbow">
+<div class="tp-hd"><div class="tp-t">팔꿈치마사지기 <span class="tp-chip" style="background:var(--blockbg);color:var(--block)">META 매체 매출 −37%</span> <span class="tp-chip" style="background:var(--v2bg);color:var(--done)">실매출 −10% · CI 유지</span></div><div class="tp-d">9월 누적 1.338억 (79%) · CI 2,114만 (83%) · 매체 귀속 매출과 실매출이 크게 벌어진 주</div></div>
+<div class="tp-kpi">
+<div class="tp-cell featneg"><div class="l">주간 매출</div><div class="v">4,345만</div><div class="s dn">▼ <b>−10.1%</b> (4,835만)</div></div>
+<div class="tp-cell feat"><div class="l">주간 공헌이익</div><div class="v">749만</div><div class="s up">▲ <b>+0.9%</b> (743만)</div></div>
+<div class="tp-cell "><div class="l">공헌율</div><div class="v">17.2<em>%</em></div><div class="s up">▲ +1.9%p (15.4%)</div></div>
+<div class="tp-cell "><div class="l">총광고비 ROAS <span class="est">KPI 시트</span></div><div class="v">207<em>%</em></div><div class="s up">광고비 2,102만 (−12.2%)</div></div>
+</div><div class="tp-kpi" style="border-top:1px solid var(--border)"><div class="tp-cell featneg"><div class="l">META <span class="est">9/15~21</span></div><div class="v">1,514만 · 128<em>%</em></div><div class="s dn">169% → 128% · 전환 202 → 124</div></div><div class="tp-cell "><div class="l">GFA</div><div class="v">477만 · 181<em>%</em></div><div class="s dn">247% → 181%</div></div><div class="tp-cell "><div class="l">SA 파워링크 팔꿈치 <span class="est">9월 누적</span></div><div class="v">24만 · 1,318<em>%</em></div><div class="s up">엘보마사지기 1,435%</div></div><div class="tp-cell "><div class="l">구글 팔꿈치</div><div class="v">종료 ✓</div><div class="s fl">9/16 이후 소진 0</div></div></div><div class="tp-body tgl" style="border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px"><details class="tgd" open><summary>일자별 — 실매출 · CI vs META</summary><div class="tgd-b"><table class="fix-tbl"><thead><tr><th>일자</th><th>실매출</th><th>공헌이익</th><th>공헌율</th><th>META 광고비</th><th>META ROAS</th></tr></thead><tbody><tr><td>9/14 (월)</td><td class="mono">873만</td><td class="mono ">242만</td><td class="mono">28%</td><td class="mono">232만</td><td class="mono ">234%</td></tr><tr><td>9/15 (화)</td><td class="mono">719만</td><td class="mono ">127만</td><td class="mono">18%</td><td class="mono">253만</td><td class="mono ">188%</td></tr><tr><td>9/16 (수)</td><td class="mono">623만</td><td class="mono ">52만</td><td class="mono">8%</td><td class="mono">262만</td><td class="mono ">144%</td></tr><tr style="background:var(--blockbg)"><td>9/17 (목)</td><td class="mono">502만</td><td class="mono neg">-4만</td><td class="mono">-1%</td><td class="mono">255만</td><td class="mono neg">88%</td></tr><tr style="background:var(--blockbg)"><td>9/18 (금)</td><td class="mono">640만</td><td class="mono ">135만</td><td class="mono">21%</td><td class="mono">224만</td><td class="mono neg">96%</td></tr><tr style="background:var(--blockbg)"><td>9/19 (토)</td><td class="mono">449만</td><td class="mono ">81만</td><td class="mono">18%</td><td class="mono">162만</td><td class="mono neg">88%</td></tr><tr><td>9/20 (일)</td><td class="mono">539만</td><td class="mono ">115만</td><td class="mono">21%</td><td class="mono">186만</td><td class="mono ">148%</td></tr><tr><td>9/21 (월)</td><td class="mono">552만</td><td class="mono ">135만</td><td class="mono">24%</td><td class="mono">173만</td><td class="mono ">132%</td></tr></tbody></table></div></details><details class="tgd"><summary>실행 이력 (KPI 시트)</summary><div class="tgd-b"><ul class="bl"><li>9/14 신금동 60 → <b>100만</b></li><li>9/16 프로모션(할인혜택) OFF</li><li>9/18 PA_통합 · 질병_통합 OFF · 신규소구 20 → 30만</li><li>9/21 신규소구 30 → 40만</li><li>9/22 이미지 40 → 30 · 영상 추가테스트 30 → 15 · 무릎소구 OFF · 신규소구 40 → 50만 <span class="est">4주차 구간</span></li></ul></div></details><details class="tgd"><summary>GFA 캠페인별 · 괄호는 전주</summary><div class="tgd-b"><table class="fix-tbl"><thead><tr><th>GFA 캠페인</th><th>광고비</th><th>매출</th><th>ROAS</th><th>전환</th></tr></thead><tbody><tr style="background:var(--blockbg)"><td><b>260624_논타겟팅_피드</b></td><td class="mono">206만 <span class="carry">(186만)</span></td><td class="mono">358만</td><td class="mono neg">174% <span class="carry">(338)</span></td><td class="mono">23</td></tr>
+<tr><td><b>260804_리타겟팅_피드</b></td><td class="mono">167만 <span class="carry">(164만)</span></td><td class="mono">341만</td><td class="mono neg">204% <span class="carry">(228)</span></td><td class="mono">23</td></tr>
+<tr><td><b>자사몰_프로모션</b> <span class="est">9/19~ 일 5만</span></td><td class="mono">104만 <span class="carry">(147만)</span></td><td class="mono">167만</td><td class="mono pos">160% <span class="carry">(155)</span></td><td class="mono">12</td></tr>
+<tr><td><b>숏클립</b> <span class="est">9/8 종료</span></td><td class="mono">0 <span class="carry">(2만)</span></td><td class="mono">0</td><td class="mono ">0% <span class="carry">(0)</span></td><td class="mono">0</td></tr>
+</tbody></table></div></details></div></div><div class="tab-panel" id="t-pelvis">
+<div class="tp-hd"><div class="tp-t">골반마사지기 <span class="tp-chip" style="background:var(--v2bg);color:var(--done)">공헌율 4 SKU 최고</span> <span class="tp-chip" style="background:var(--blockbg);color:var(--block)">매출 진도 11.5%</span></div><div class="tp-d">9월 누적 1,547만 (11.5%) · CI 688만 (51%) · 광고비 주 87만으로 CI 327만</div></div>
+<div class="tp-kpi">
+<div class="tp-cell feat"><div class="l">주간 매출</div><div class="v">648만</div><div class="s up">▲ <b>+19.6%</b> (542만)</div></div>
+<div class="tp-cell feat"><div class="l">주간 공헌이익</div><div class="v">327만</div><div class="s up">▲ <b>+37.5%</b> (238만)</div></div>
+<div class="tp-cell "><div class="l">공헌율</div><div class="v">50.5<em>%</em></div><div class="s up">▲ +6.6%p (43.9%)</div></div>
+<div class="tp-cell "><div class="l">총광고비 ROAS <span class="est">KPI 시트</span></div><div class="v">742<em>%</em></div><div class="s up">광고비 87만 (−16.5%)</div></div>
+</div><div class="tp-body tgl" style="border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px"><details class="tgd" open><summary>확인 사항</summary><div class="tgd-b"><ul class="bl"><li>META 83만 → 64만 · 매체 ROAS 241% → 177% — 전환이 주 5~8건이라 매체 ROAS 변동은 의미 작음</li><li>KPI 시트 실행 기록이 8/24 이후 4주째 없음</li><li class="w">9월 목표 1.35억 대비 11.5% — 재설정 여부 결정 필요 (2주 이월)</li></ul></div></details></div></div></div></div>
+<!-- 04 --><div class="sec"><div class="sec-hdr"><div class="sec-num">04</div><div class="sec-title">매체 운영 결과 <small>META · GFA · SA · 구글 · 틱톡 (9/15~9/21)</small></div><div class="unit w">주 단위</div></div>
+<div class="mt-bar"><span class="note-s" style="margin:0">매체명을 누르면 세부 지면 · 확인 사항이 펼쳐짐</span><button class="mt-all" type="button">전체 펼치기</button></div>
+<div class="tbl-wrap"><table class="goal-tbl">
+<thead><tr><th>매체</th><th>광고비</th><th>비중</th><th>매출</th><th>비중</th><th>전환</th><th>ROAS</th><th>전주 ROAS</th><th>CPA</th></tr></thead>
+<tbody><tr class="mp" data-g="META" tabindex="0" role="button" aria-expanded="false"><td><span class="tg">▸</span><b>META</b></td><td class="mono">1.156억</td><td class="mono">70.2%</td><td class="mono g-rev">2.176억</td><td class="mono">52.2%</td><td class="mono">1,898</td><td class="mono pos"><b>188%</b></td><td class="mono carry">184%</td><td class="mono">60,897</td></tr>
+<tr class="mc" data-g="META"><td>└ 목베개</td><td class="mono">8,879만</td><td class="mono carry">—</td><td class="mono">1.779억</td><td class="mono carry">—</td><td class="mono">1,635</td><td class="mono pos">200%</td><td class="mono carry">195%</td><td class="mono">54,303</td></tr>
+<tr class="mc" data-g="META" style="background:var(--blockbg)"><td>└ 팔꿈치</td><td class="mono">1,514만</td><td class="mono carry">—</td><td class="mono">1,940만</td><td class="mono carry">—</td><td class="mono">124</td><td class="mono neg">128%</td><td class="mono carry">169%</td><td class="mono">122,108</td></tr>
+<tr class="mc" data-g="META" style="background:var(--v2bg)"><td>└ 허편케</td><td class="mono">1,101만</td><td class="mono carry">—</td><td class="mono">1,914만</td><td class="mono carry">—</td><td class="mono">134</td><td class="mono pos">174%</td><td class="mono carry">137%</td><td class="mono">82,185</td></tr>
+<tr class="mc" data-g="META"><td>└ 골반</td><td class="mono">64만</td><td class="mono carry">—</td><td class="mono">114만</td><td class="mono carry">—</td><td class="mono">5</td><td class="mono neg">177%</td><td class="mono carry">241%</td><td class="mono">128,578</td></tr>
+<tr class="mp" data-g="GFA" tabindex="0" role="button" aria-expanded="false"><td><span class="tg">▸</span><b>GFA</b></td><td class="mono">2,796만</td><td class="mono">17.0%</td><td class="mono g-rev">6,715만</td><td class="mono">16.1%</td><td class="mono">495</td><td class="mono neg"><b>240%</b></td><td class="mono carry">254%</td><td class="mono">56,482</td></tr>
+<tr class="mc" data-g="GFA"><td>└ 애드부스트</td><td class="mono">626만</td><td class="mono carry">—</td><td class="mono">1,742만</td><td class="mono carry">—</td><td class="mono">116</td><td class="mono neg">278%</td><td class="mono carry">319%</td><td class="mono">53,993</td></tr>
+<tr class="mc" data-g="GFA"><td>└ 피드</td><td class="mono">2,062만</td><td class="mono carry">—</td><td class="mono">4,902만</td><td class="mono carry">—</td><td class="mono">373</td><td class="mono neg">238%</td><td class="mono carry">242%</td><td class="mono">55,277</td></tr>
+<tr class="mc" data-g="GFA" style="background:var(--blockbg)"><td>└ 숏클립</td><td class="mono">108만</td><td class="mono carry">—</td><td class="mono">71만</td><td class="mono carry">—</td><td class="mono">6</td><td class="mono pos">66%</td><td class="mono carry">55%</td><td class="mono">179,548</td></tr>
+<tr class="mp" data-g="SA" tabindex="0" role="button" aria-expanded="false" style="background:var(--v2bg)"><td><span class="tg">▸</span><b>SA</b></td><td class="mono">1,139만</td><td class="mono">6.9%</td><td class="mono g-rev">1.203억</td><td class="mono">28.9%</td><td class="mono">904</td><td class="mono pos"><b>1056%</b></td><td class="mono carry">847%</td><td class="mono">12,601</td></tr>
+<tr class="mc" data-g="SA"><td>└ 브랜드검색</td><td class="mono">123만</td><td class="mono carry">—</td><td class="mono">7,031만</td><td class="mono carry">—</td><td class="mono">488</td><td class="mono pos">5707%</td><td class="mono carry">4598%</td><td class="mono">2,525</td></tr>
+<tr class="mc" data-g="SA"><td>└ 쇼핑검색</td><td class="mono">646만</td><td class="mono carry">—</td><td class="mono">2,537만</td><td class="mono carry">—</td><td class="mono">218</td><td class="mono pos">393%</td><td class="mono carry">381%</td><td class="mono">29,619</td></tr>
+<tr class="mc" data-g="SA"><td>└ 파워링크</td><td class="mono">370만</td><td class="mono carry">—</td><td class="mono">2,463만</td><td class="mono carry">—</td><td class="mono">198</td><td class="mono pos">665%</td><td class="mono carry">481%</td><td class="mono">18,699</td></tr>
+<tr class="mc mnote" data-g="SA"><td colspan="9"><div class="mn-wrap"><div class="mn"><div class="mn-hd"><b>브랜드검색 · BDC 효과</b><span class="mn-v pos">+24%</span></div><div class="note-s" style="margin:0">일 매출 809만 → 1,004만. 다만 9/16 1,219만을 정점으로 9/21 767만까지 내려옴 — BDC 효과가 빠지는 중</div></div><div class="mn"><div class="mn-hd"><b>파워링크 정리 후보</b><span class="mn-v neg">9월 누적 100만</span></div><div class="note-s" style="margin:0">목베개추천 · 목디스크베개추천 · 수면베개 · 목디스크배게추천 전환 0, 거북목베개 44% · 숙면베개 84% · 허리마사지기 PC 72%</div></div></div></td></tr><tr class="mp" data-g="GG" tabindex="0" role="button" aria-expanded="false" style="background:var(--warnbg)"><td><span class="tg">▸</span><b>구글</b></td><td class="mono">868만</td><td class="mono">5.3%</td><td class="mono g-rev">978만</td><td class="mono">2.3%</td><td class="mono">72</td><td class="mono neg"><b>113%</b></td><td class="mono carry">263%</td><td class="mono">120,556</td></tr>
+<tr class="mc" data-g="GG"><td>└ 목V2 <span class="est">9/14~9/21</span></td><td class="mono">552만</td><td class="mono carry">—</td><td class="mono">620만</td><td class="mono carry">—</td><td class="mono">50</td><td class="mono ">112%</td><td class="mono carry">—</td><td class="mono">110,396</td></tr><tr class="mc" data-g="GG"><td>└ 허리 <span class="est">9/14~9/21</span></td><td class="mono">160만</td><td class="mono carry">—</td><td class="mono">210만</td><td class="mono carry">—</td><td class="mono">13</td><td class="mono ">131%</td><td class="mono carry">—</td><td class="mono">123,242</td></tr><tr class="mc" data-g="GG"><td>└ 미분류 <span class="est">9/14~9/21</span></td><td class="mono">158만</td><td class="mono carry">—</td><td class="mono">178만</td><td class="mono carry">—</td><td class="mono">12</td><td class="mono ">113%</td><td class="mono carry">—</td><td class="mono">131,974</td></tr><tr class="mc" data-g="GG"><td>└ 팔꿈치 <span class="est">9/14~9/21</span></td><td class="mono">14만</td><td class="mono carry">—</td><td class="mono">0</td><td class="mono carry">—</td><td class="mono">0</td><td class="mono neg">0%</td><td class="mono carry">—</td><td class="mono">—</td></tr><tr class="mp" data-g="TT" tabindex="0" role="button" aria-expanded="false"><td><span class="tg">▸</span><b>틱톡</b></td><td class="mono">104만</td><td class="mono">0.6%</td><td class="mono g-rev">216만</td><td class="mono">0.5%</td><td class="mono">15</td><td class="mono pos"><b>207%</b></td><td class="mono carry">192%</td><td class="mono">69,576</td></tr>
+<tr class="mc" data-g="TT"><td>└ 목V2 · 목질병</td><td class="mono">50만</td><td class="mono carry">—</td><td class="mono">109만</td><td class="mono carry">—</td><td class="mono">8</td><td class="mono">217%</td><td class="mono carry">—</td><td class="mono">62,742</td></tr><tr class="mc" data-g="TT"><td>└ 목V2 · 편두통 <span class="est">9/16~</span></td><td class="mono">50만</td><td class="mono carry">—</td><td class="mono">107만</td><td class="mono carry">—</td><td class="mono">7</td><td class="mono">213%</td><td class="mono carry">—</td><td class="mono">71,491</td></tr><tr style="background:var(--card2)"><td><b>합계</b></td><td class="mono"><b>1.647억</b></td><td class="mono">100%</td><td class="mono g-rev"><b>4.170억</b></td><td class="mono">100%</td><td class="mono">3,384</td><td class="mono"><b>253%</b></td><td class="mono carry">252%</td><td class="mono">48,657</td></tr></tbody></table>
+<div class="tbl-cap">매체 매출은 각 매체 귀속 기준이라 중복 집계가 있음 (KPI 실매출과 다름). META는 목베개 · 팔꿈치 · 허편케 · 골반 합계 · 틱톡은 9/15~9/20 6일 · 구글 제품 분해는 9/14~9/21 · 전주 GFA는 금주 시트 기준 재집계(1,904만 → 2,293만).</div></div>
+<details class="gfa-toggle"><summary><span class="gfa-sum-l">매체 주차 추이 <span class="gfa-chip">9월 1~3주 · SA 제외</span></span><span class="gfa-sum-r">펼치기</span></summary>
+<div style="padding:14px 18px"><table class="fix-tbl"><thead><tr><th>매체</th><th>1주 광고비</th><th>ROAS</th><th>2주 광고비</th><th>ROAS</th><th>3주 광고비</th><th>ROAS</th></tr></thead><tbody><tr><td><b>META</b></td><td class="mono">1.107억</td><td class="mono">186%</td><td class="mono">1.058억</td><td class="mono">184%</td><td class="mono">1.156억</td><td class="mono">188%</td></tr><tr><td><b>GFA</b></td><td class="mono">1,692만</td><td class="mono">244%</td><td class="mono">2,293만</td><td class="mono">254%</td><td class="mono">2,796만</td><td class="mono">240%</td></tr><tr><td><b>구글</b></td><td class="mono">—</td><td class="mono">—</td><td class="mono">97만</td><td class="mono">263%</td><td class="mono">868만</td><td class="mono">113%</td></tr><tr><td><b>틱톡</b></td><td class="mono">35만</td><td class="mono">247%</td><td class="mono">61만</td><td class="mono">192%</td><td class="mono">104만</td><td class="mono">207%</td></tr><tr><td><b>합계 (SA 제외)</b></td><td class="mono">1.280억</td><td class="mono">194%</td><td class="mono">1.303억</td><td class="mono">197%</td><td class="mono">1.533억</td><td class="mono">194%</td></tr></tbody></table></div></details>
+</div>
+<!-- 05 --><div class="sec"><div class="sec-hdr"><div class="sec-num">05</div><div class="sec-title">인사이트 <small>목베개 증액 · 팔꿈치 · 구글 · 3건</small></div><div class="unit n">해석</div></div>
+<div class="insight">
+<div class="insight-row"><div class="ins-icon" style="background:var(--warn)">1</div><div class="ins-body">
+<div class="ins-title">목베개 — <strong>광고비 +2,440만가 공헌이익은 +198만만 남김</strong></div>
+<div class="pt c3">
+<div class="pt-item warn"><div class="pt-k">늘린 광고비</div><div class="pt-v">+2,440만</div><div class="pt-d">8,362만 → 1.080억 (+29.2%) · BDC 250만 · 버섯목 · 올AI · GFA BDC 100만</div></div>
+<div class="pt-item good"><div class="pt-k">늘어난 매출</div><div class="pt-v">+3,821만</div><div class="pt-d">추가 광고비 대비 157% — 평균 ROAS 200%보다 낮음</div></div>
+<div class="pt-item bad"><div class="pt-k">늘어난 공헌이익</div><div class="pt-v">+198만</div><div class="pt-d">추가 광고비 1만원당 CI 812원 · 공헌율 24.7% → 21.2%</div></div>
+</div>
+<table class="fix-tbl"><thead><tr><th>GFA BDC 피드</th><th>광고비</th><th>매출</th><th>ROAS</th><th>전환</th></tr></thead><tbody><tr><td>9/13 (일)</td><td class="mono">39만</td><td class="mono">283만</td><td class="mono pos">731%</td><td class="mono">21</td></tr><tr><td>9/14 (월)</td><td class="mono">59만</td><td class="mono">170만</td><td class="mono ">288%</td><td class="mono">14</td></tr><tr><td>9/15 (화)</td><td class="mono">77만</td><td class="mono">214만</td><td class="mono ">277%</td><td class="mono">16</td></tr><tr><td>9/16 (수)</td><td class="mono">77만</td><td class="mono">173만</td><td class="mono ">223%</td><td class="mono">14</td></tr><tr><td>9/17 (목)</td><td class="mono">78만</td><td class="mono">311만</td><td class="mono pos">400%</td><td class="mono">22</td></tr><tr style="background:var(--warnbg)"><td>9/18 (금)</td><td class="mono">97만</td><td class="mono">190만</td><td class="mono neg">196%</td><td class="mono">17</td></tr><tr><td>9/19 (토)</td><td class="mono">97만</td><td class="mono">259만</td><td class="mono ">267%</td><td class="mono">22</td></tr><tr><td>9/20 (일)</td><td class="mono">96만</td><td class="mono">202만</td><td class="mono ">210%</td><td class="mono">19</td></tr><tr><td>9/21 (월)</td><td class="mono">96만</td><td class="mono">166만</td><td class="mono neg">173%</td><td class="mono">14</td></tr></tbody></table>
+</div></div>
+
+<div class="insight-row"><div class="ins-icon" style="background:var(--v1)">2</div><div class="ins-body">
+<div class="ins-title">팔꿈치 — <strong>META가 잃은 매출 대부분은 다른 경로로 들어왔음</strong></div>
+<div class="pt c3">
+<div class="pt-item bad"><div class="pt-k">META 귀속 매출</div><div class="pt-v">−37.2%</div><div class="pt-d">3,090만 → 1,940만 · ROAS 169% → 128%</div></div>
+<div class="pt-item warn"><div class="pt-k">KPI 실매출</div><div class="pt-v">−10.1%</div><div class="pt-d">4,835만 → 4,345만 · 광고비 −12.2%</div></div>
+<div class="pt-item good"><div class="pt-k">공헌이익</div><div class="pt-v">+0.9%</div><div class="pt-d">743만 → 749만 · 공헌율 15.4 → 17.2%</div></div>
+</div>
+<p class="note-s">META 전환이 줄어든 만큼 검색 · 직접 유입으로 들어온 것으로 보임 (SA 파워링크 팔꿈치 키워드 누적 1,318%). 9/17(목)만 CI가 적자였고 나머지 날은 흑자. 그래서 이번 주 팔꿈치는 <b>META ROAS보다 CI로 보는 게 맞고</b>, 추가 감액보다 신금동 증액분(100 → 60만) 복귀 여부만 캠페인 데이터로 확인하면 충분.</p>
+</div></div>
+
+<div class="insight-row"><div class="ins-icon" style="background:var(--done)">3</div><div class="ins-body">
+<div class="ins-title">구글 재진입 — <strong>첫 4일 부진, 후반 3일 159%</strong></div>
+<table class="fix-tbl"><thead><tr><th>일자</th><th>광고비</th><th>매출</th><th>ROAS</th><th>전환</th></tr></thead><tbody><tr><td>9/15 (화)</td><td class="mono">84만</td><td class="mono">44만</td><td class="mono neg">53%</td><td class="mono">4</td></tr><tr><td>9/16 (수)</td><td class="mono">133만</td><td class="mono">101만</td><td class="mono neg">76%</td><td class="mono">8</td></tr><tr><td>9/17 (목)</td><td class="mono">141만</td><td class="mono">173만</td><td class="mono ">123%</td><td class="mono">11</td></tr><tr><td>9/18 (금)</td><td class="mono">110만</td><td class="mono">21만</td><td class="mono neg">19%</td><td class="mono">2</td></tr><tr><td>9/19 (토)</td><td class="mono">130만</td><td class="mono">187만</td><td class="mono pos">144%</td><td class="mono">16</td></tr><tr><td>9/20 (일)</td><td class="mono">135만</td><td class="mono">225만</td><td class="mono pos">167%</td><td class="mono">17</td></tr><tr><td>9/21 (월)</td><td class="mono">136만</td><td class="mono">225만</td><td class="mono pos">166%</td><td class="mono">14</td></tr></tbody></table>
+<p class="note-s">PMAX · 디멘드젠은 학습 초기 효율이 낮은 게 일반적이라 첫 주 113%만으로 끄기엔 이름. KPI 시트 기준으로도 목베개 구글 ROAS 98% · 허편케 133%. 후반 3일(9/19~9/21) 401만 → 638만(159%)으로 올라오는 중이라 1주 더 관찰.</p>
+</div></div>
+</div></div>
+<!-- 06 --><div class="sec"><div class="sec-hdr"><div class="sec-num">06</div><div class="sec-title">9월 4주차 액션 <small>9/21~9/27 · 초안 · 매체 3 · 제품 4 · 별도 3</small></div><div class="unit n">액션</div></div>
+<div class="sub-hd"><div class="sub-hd-t">매체 단위</div><div class="sub-hd-d">구글 · GFA · SA</div></div>
+<div class="tbl-wrap"><table class="goal-tbl"><colgroup><col style="width:44px"><col style="width:230px"><col><col style="width:150px"></colgroup><thead><tr><th>#</th><th class="nm">항목</th><th style="text-align:left">실행 내용</th><th>예산</th></tr></thead><tbody><tr style="background:var(--warnbg)"><td class="mono"><b>1</b></td><td class="nm"><div class="act-t">🔍 구글 1주 추가 관찰</div></td><td style="text-align:left"><ul class="bl"><li>후반 3일 159% — <b>OFF 없이 유지</b>, 캠페인 · 에셋 그룹별 성과 추출</li><li>기준: 2주 연속 100% 미만 에셋 그룹 OFF</li><li>집행액이 계획(80만)보다 큼 — 계획 단위 확인 후 예산 상한 다시 설정</li></ul></td><td class="mono">유지<br><span class="carry">상한 다시 확인</span></td></tr><tr style="background:var(--v2bg)"><td class="mono"><b>2</b></td><td class="nm"><div class="act-t">📊 GFA 재배분</div></td><td style="text-align:left"><ul class="bl"><li>목V2 논타겟(343%) · 리타겟(316%) <b>일 40 → 52만</b> (+30%)</li><li>숏클립 OFF: 목V2 BDC 숏클립 71% · 미분류 0% → 주 82만 회수</li><li>애드부스트(278%)는 현 예산 유지</li></ul></td><td class="mono">+168만 · −82만</td></tr><tr><td class="mono"><b>3</b></td><td class="nm"><div class="act-t">🔎 SA 파워링크 정리</div></td><td style="text-align:left"><ul class="bl"><li>전환 0: 목베개추천 · 목디스크베개추천 · 수면베개 · 목디스크배게추천 <b>OFF</b></li><li>저효율: 거북목베개 44% · 숙면베개 84% · 허리마사지기 PC 72% <b>OFF</b> — 9월 누적 합계 100만</li><li>쇼핑검색 20시 입찰 하향 적용됐는지 확인 (9월 누적 148%) · 키워드 주간 리포트 추출 요청</li></ul></td><td class="mono">약 −33만/주</td></tr></tbody></table></div>
+<div class="sub-hd"><div class="sub-hd-t">제품 단위</div><div class="sub-hd-d">메이크업안 달성 후엔 이익 지키는 쪽으로</div></div>
+<div class="tbl-wrap"><table class="goal-tbl"><colgroup><col style="width:44px"><col style="width:230px"><col><col style="width:150px"></colgroup><thead><tr><th>#</th><th class="nm">항목</th><th style="text-align:left">실행 내용</th><th>예산</th></tr></thead><tbody><tr style="background:var(--warnbg)"><td class="mono"><b>4</b></td><td class="nm"><div class="act-t">💤 목베개 증액 멈춤</div></td><td style="text-align:left"><ul class="bl"><li>9/22 META 5개 감액 ✓ (기존고효율 · 버섯목 · 일자목 · 이미지 · 거북목 OFF)</li><li>GFA BDC 피드 <b>100 → 80만/일</b> — 9/18 증액 후 −204%p, 규칙대로 직전 예산 복귀</li><li>META BDC 250만은 캠페인 ROAS 확인 후 300%/200% 규칙 적용</li><li>기준: 공헌율 <b>24%</b> 회복 (2주차 수준)</li></ul></td><td class="mono">−140만/주 + 9/22분</td></tr><tr><td class="mono"><b>5</b></td><td class="nm"><div class="act-t">💪 팔꿈치 CI 기준 운영</div></td><td style="text-align:left"><ul class="bl"><li>9/22 이미지 · 영상 추가테스트 감액 · 무릎소구 OFF ✓ · 신규소구 40 → 50만</li><li>META 신금동: 9/14 이후 −30%p 이상 하락 확인되면 <b>100 → 60만</b> 복귀</li><li>이번 주 CI 749만 유지가 기준 — 추가 감액은 하지 않음</li></ul></td><td class="mono">최대 −280만/주</td></tr><tr style="background:var(--v2bg)"><td class="mono"><b>6</b></td><td class="nm"><div class="act-t">💪 허편케 13.5% 유지</div></td><td style="text-align:left"><ul class="bl"><li>GFA V2 BDC 피드(91%) · BDC 숏클립(81%) <b>OFF</b> → 주 154만 회수</li><li>META BDC 40 → 60만(9/18) 증액분은 캠페인 ROAS 확인 후 유지 여부 결정</li><li>V1 신규 피드(174%) · 구글 허리(131%) 유지</li></ul></td><td class="mono">−154만/주</td></tr><tr style="background:var(--blockbg)"><td class="mono"><b>7</b></td><td class="nm"><div class="act-t">🤰 골반 목표 재설정</div></td><td style="text-align:left"><ul class="bl"><li>매출 진도 11.5% — 1.35억 목표 대신 <b>이익 SKU</b>로 전환 (CI 기준 관리)</li><li>KPI 시트 실행 기록 재개</li></ul></td><td class="mono">결정 필요</td></tr></tbody></table></div>
+<div class="sub-hd"><div class="sub-hd-t">별도 운영</div><div class="sub-hd-d">추석 · 규칙 · 시트</div></div>
+<div class="tbl-wrap"><table class="goal-tbl"><colgroup><col style="width:44px"><col style="width:230px"><col><col style="width:150px"></colgroup><thead><tr><th>#</th><th class="nm">항목</th><th style="text-align:left">실행 내용</th><th>예산</th></tr></thead><tbody><tr style="background:var(--warnbg)"><td class="mono"><b>8</b></td><td class="nm"><div class="act-t">🌕 추석 연휴 운영 (9/24~9/26)</div></td><td style="text-align:left"><ul class="bl"><li>추석 연휴 · 배송 마감을 고려해 <b>전체 캠페인 예산 감액 및 최적화</b> 진행</li><li>메이크업안 CI 9/23 전후 달성 예상 → 연휴 중엔 <b>이익 위주로 운영</b></li></ul></td><td class="mono">전체 감액</td></tr><tr><td class="mono"><b>9</b></td><td class="nm"><div class="act-t">📐 증액 규칙 매일 체크</div></td><td style="text-align:left"><ul class="bl"><li>9/18 GFA BDC처럼 −30%p 하락에도 복귀가 안 되고 있음</li><li>매일 오전 전일 ROAS로 규칙 해당 캠페인 체크 → 당일 복귀</li></ul></td><td class="mono">규칙</td></tr><tr><td class="mono"><b>10</b></td><td class="nm"><div class="act-t">🧾 월 목표 시트 수식</div></td><td style="text-align:left"><ul class="bl"><li>9/15 이후 발편한케어 · 바풀컷 제외가 빠져 있음 — 수식 보정</li><li>보정 전후 메이크업안 CI 94.5% vs 90.3%</li></ul></td><td class="mono">시트</td></tr></tbody></table></div>
+</div>
+</div>
+<script>
+document.querySelectorAll('.tab-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var wrap = btn.closest('.tabs');
+    wrap.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+    wrap.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+    btn.classList.add('active');
+    var el = wrap.querySelector('#' + btn.dataset.tab);
+    if (el) el.classList.add('active');
+  });
+});
+</script>
+
+
+<script>
+(function(){
+  function setG(tr, open){
+    var g = tr.dataset.g;
+    tr.classList.toggle('open', open); tr.setAttribute('aria-expanded', open);
+    tr.closest('tbody').querySelectorAll('.mc[data-g="'+g+'"]').forEach(function(r){ r.classList.toggle('show', open); });
+  }
+  document.querySelectorAll('.mp').forEach(function(tr){
+    tr.addEventListener('click', function(){ setG(tr, !tr.classList.contains('open')); });
+    tr.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); setG(tr, !tr.classList.contains('open')); } });
+  });
+  var btn = document.querySelector('.mt-all');
+  if(btn) btn.addEventListener('click', function(){
+    var open = btn.textContent === '전체 펼치기';
+    document.querySelectorAll('.mp').forEach(function(tr){ setG(tr, open); });
+    btn.textContent = open ? '전체 접기' : '전체 펼치기';
+  });
+})();
+</script>
+</body>
+</html>
